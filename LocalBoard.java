@@ -53,8 +53,8 @@ public class LocalBoard
     return localStr.toString();
   }
 
-  public static void main(String[] args)
-  {
-    LocalBoard testBoard = new LocalBoard(2);
-  }
+//   public static void main(String[] args)
+//   {
+//     LocalBoard testBoard = new LocalBoard(2);
+//   }
 }
