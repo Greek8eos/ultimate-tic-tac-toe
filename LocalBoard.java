@@ -58,4 +58,3 @@ public class LocalBoard
   //   LocalBoard testBoard = new LocalBoard(2);
   // }
 }
-
