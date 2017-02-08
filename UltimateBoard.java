@@ -7,8 +7,8 @@ public class UltimateBoard
 
 	public String toString();
 
-// 	public static void main(String[] args)
-//   	{
-//     	UltimateBoard testBoard = new UltimateBoard();
-//   	}
+	public static void main(String[] args)
+  	{
+    	UltimateBoard testBoard = new UltimateBoard();
+  	}
 }
