@@ -11,16 +11,25 @@ public class Player
     this.lastMove = 0;
   }
   
+  /**
+  * Sets this players lastMove.
+  */
   public void setLastMove(int last)
   {
     this.lastMove = last;
   }
   
+  /**
+  * Returns this players lastMove.
+  */
   public int getLastMove()
   {
     return this.lastMove;
   }
   
+  /**
+  * Changes this players turn.
+  */
   public void setTurn()
   {
     if (this.isTurn == false)
@@ -31,10 +40,12 @@ public class Player
     {
       this.isTurn = false;
     }
-    
     return;
   }
   
+  /**
+  * Returns this players symbol.
+  */
   public char getSymbol()
   {
     return this.symbol;
