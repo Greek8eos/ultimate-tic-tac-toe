@@ -2,8 +2,11 @@ import java.util.*;
 
 public class LocalBoard
 {
+  // Each local boards number
   private int boardNum;
+  // Indicates if a local board has been one
   private boolean isWon;
+  // 2D String array that stores boards symbols.
   private String boardArr[][];
   
   public LocalBoard(int num)
@@ -15,46 +18,75 @@ public class LocalBoard
     return;
   }
   
+  /**
+  * Returns this boards number.
+  */
   public int boardNum()
   {
     return boardNum;
   }
   
-  public void setWon()
-  {
-    this.isWon = true;
-    return;
-  }
-  
+  /**
+  * Returns a boolean indicating whether a board has been won or not.
+  */
   public boolean isWon()
   {
     return this.isWon;
   }
 
-  public boolean isSpotEmpty(int row, int col)
+  /**
+  * Checks if the board has been won and sets isWon to true if the board has 
+  * been won.
+  */
+  private void checkWon()
+  {
+    // Some type of conditional to test is the board has been won.
+    if ()
+    {
+      this.isWon = true;
+      return;
+    }
+
+    return;
+  }
+
+  /**
+  * Checks if a spot on the board is empty.
+  */
+  public boolean isSpotEmpty(Coord spot)
   {
     return (boardArr[row][col] == null);
   }
 
-  public void setSpot(int row, int col)
+  /**
+  * Sets a given spot on the board to the current players symbol.
+  */
+  public void setSpot(Coord spot)
   {
     if (isSpotEmpty(row, col) == false)
     {
       return;
     }
 
+    // Code to set spot
 
     return;    
   }
 
+  /**
+  * Returns a string representation of the board.
+  */
   public String toString()
   {
     StringBuilder localStr = new StringBuilder();
     return localStr.toString();
   }
 
-//   public static void main(String[] args)
-//   {
-//     LocalBoard testBoard = new LocalBoard(2);
-//   }
+  /**
+  * Main method used for testing board methods.
+  */
+  // public static void main(String[] args)
+  // {
+  //   LocalBoard testBoard = new LocalBoard(2);
+  // }
 }
