@@ -9,6 +9,12 @@ public class LocalBoard
   // 2D String array that stores boards symbols.
   private String boardArr[][];
   
+  /*
+   * Local Board Costructor
+   * Parameters: num (value to store as the board number in the [3][3] array)
+   * Sets condition isWon to false (game is not won)
+   * declares board array[3][3]
+  */
   public LocalBoard(int num)
   {
     this.boardNum = num;
