@@ -1,10 +1,10 @@
 public class Player
 {
   private boolean isTurn;
-  private final String symbol;
+  private final Char symbol;
   private int lastMove;
   
-  public Player(String symbol)
+  public Player(Char symbol)
   {
     this.symbol = symbol;
     this.isTurn = false;
@@ -35,7 +35,7 @@ public class Player
     return;
   }
   
-  public String getSymbol()
+  public Char getSymbol()
   {
     return this.symbol;
   }
