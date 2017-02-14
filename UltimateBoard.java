@@ -2,9 +2,6 @@ import java.util.*;
 
 public class UltimateBoard
 {
-	//Player Class??
-	// Player one
-	// Player two
 
 	// Nine LocalBoard components of the ultimate board.
 	private LocalBoard boardArr[][];
