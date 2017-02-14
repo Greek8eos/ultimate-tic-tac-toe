@@ -2,6 +2,7 @@ import java.util.*;
 
 public class UltimateBoard
 {
+	//Player Class??
 	// Player one
 	// Player two
 
@@ -31,9 +32,9 @@ public class UltimateBoard
 	*/
 	public boolean setTurn();
 
-	/**
-  * Returns a string representation of the board.
-  */
+	/*
+  	 * Returns a string representation of the board.
+  	*/
 	public String toString()
 	{
 		StringBuilder ultimateStr = new StringBuilder();
