@@ -4,7 +4,7 @@ public class LocalBoard
 {
   // Each local boards number
   private int boardNum;
-  // Indicates if a local board has been one
+  // Indicates if a local board has been won
   private boolean isWon;
   // 2D String array that stores boards symbols.
   private String boardArr[][];
