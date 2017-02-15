@@ -20,8 +20,6 @@ public class LocalBoard
     this.boardNum = num;
     this.isWon = false;
     this.boardArr = new String[3][3];
-    
-    return;
   }
   
   /**
