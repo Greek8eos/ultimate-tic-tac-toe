@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class 
+public class UltimateBoard
 {
 
 	// Nine LocalBoard components of the ultimate board.
