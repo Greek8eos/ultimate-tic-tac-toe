@@ -6,9 +6,9 @@ public class UltimateBoard
 	// Nine LocalBoard components of the ultimate board.
 	private LocalBoard boardArr[][];
 
-	/*
-	 * Ultimate Board constructor
-	 * Default: construct an empty [3][3] board
+	/**
+	* Ultimate Board constructor
+	* Default: construct an empty [3][3] board
 	*/ 
 	public UltimateBoard()
 	{
@@ -30,8 +30,8 @@ public class UltimateBoard
 	public boolean setTurn();
 
 	/*
-  	 * Returns a string representation of the board.
-  	*/
+  * Returns a string representation of the board.
+  */
 	public String toString()
 	{
 		StringBuilder ultimateStr = new StringBuilder();
