@@ -5,7 +5,7 @@ public class UltimateBoard
 	// Nine LocalBoard components of the ultimate board.
 	private LocalBoard boardArr[][];
 	private Player playOne;
-  private Player playTwo;
+  	private Player playTwo;
 
 	/**
 	* Ultimate Board constructor
@@ -34,8 +34,8 @@ public class UltimateBoard
 	public boolean setTurn();
 
 	/**
-  * Returns a string representation of the board.
-  */
+  	* Returns a string representation of the board.
+  	*/
 	public String toString()
 	{
 		StringBuilder ultimateStr = new StringBuilder();
@@ -52,11 +52,11 @@ public class UltimateBoard
 	}
 
 	/**
-  * Main method used for testing UltimateBoard methods.
-  */
+  	* Main method used for testing UltimateBoard methods.
+  	*/
 	// public static void main(String[] args)
-  // {
-  //   UltimateBoard testBoard = new UltimateBoard();
-  // }
+  	// {
+  	//   UltimateBoard testBoard = new UltimateBoard();
+  	// }
 }
 
