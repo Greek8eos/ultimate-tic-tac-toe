@@ -11,7 +11,7 @@ public class LocalBoard
   private Player playOne;
   private Player playTwo;
   
-  /*
+  /**
    * Local Board Costructor
    * Parameters: num (value to store as the board number in the [3][3] array)
    * Sets condition isWon to false (game is not won)
@@ -59,16 +59,16 @@ public class LocalBoard
     }
     
     // Some type of conditional to test is the board has been won.
-    if (boardArr[0][0].equals(symbol)  && boardArr[0][1].equals(symbol)  && boardArr[0][2].equals(symbol) ||
-        boardArr[1][0].equals(symbol)  && boardArr[1][1].equals(symbol)  && boardArr[1][2].equals(symbol) ||
-        boardArr[2][0].equals(symbol)  && boardArr[2][1].equals(symbol)  && boardArr[2][2].equals(symbol) ||
+    if ((boardArr[0][0].equals(symbol)  && boardArr[0][1].equals(symbol)  && boardArr[0][2].equals(symbol)) ||
+        (boardArr[1][0].equals(symbol)  && boardArr[1][1].equals(symbol)  && boardArr[1][2].equals(symbol)) ||
+        (boardArr[2][0].equals(symbol)  && boardArr[2][1].equals(symbol)  && boardArr[2][2].equals(symbol)) ||
         
-        boardArr[0][0].equals(symbol)  && boardArr[1][0].equals(symbol)  && boardArr[2][0].equals(symbol) ||
-        boardArr[0][1].equals(symbol)  && boardArr[1][1].equals(symbol)  && boardArr[2][1].equals(symbol) ||
-        boardArr[0][2].equals(symbol)  && boardArr[1][2].equals(symbol)  && boardArr[2][2].equals(symbol) ||
+        (boardArr[0][0].equals(symbol)  && boardArr[1][0].equals(symbol)  && boardArr[2][0].equals(symbol)) ||
+        (boardArr[0][1].equals(symbol)  && boardArr[1][1].equals(symbol)  && boardArr[2][1].equals(symbol)) ||
+        (boardArr[0][2].equals(symbol)  && boardArr[1][2].equals(symbol)  && boardArr[2][2].equals(symbol)) ||
         
-        boardArr[0][0].equals(symbol)  && boardArr[1][1].equals(symbol)  && boardArr[2][2].equals(symbol) ||
-        boardArr[0][2].equals(symbol)  && boardArr[1][1].equals(symbol)  && boardArr[2][0].equals(symbol))
+        (boardArr[0][0].equals(symbol)  && boardArr[1][1].equals(symbol)  && boardArr[2][2].equals(symbol)) ||
+        (boardArr[0][2].equals(symbol)  && boardArr[1][1].equals(symbol)  && boardArr[2][0].equals(symbol)))
     {
       this.isWon = true;
       return;
