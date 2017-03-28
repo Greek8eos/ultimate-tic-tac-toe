@@ -8,6 +8,8 @@ public class LocalBoard
   private boolean isWon;
   // 2D String array that stores boards symbols.
   private String boardArr[][];
+  private Player playOne;
+  private Player playTwo;
   
   /*
    * Local Board Costructor
@@ -15,11 +17,13 @@ public class LocalBoard
    * Sets condition isWon to false (game is not won)
    * declares board array[3][3]
   */
-  public LocalBoard(int num)
+  public LocalBoard(int num, Player playOne, Player playTwo)
   {
     this.boardNum = num;
     this.isWon = false;
     this.boardArr = new String[3][3];
+    this.playOne = playOne;
+    this.playTwo = playTwo;
   }
   
   /**
@@ -44,8 +48,27 @@ public class LocalBoard
   */
   private void checkWon()
   {
+    String symbol = null;
+    if (playOne.getTurn())
+    {
+      symbol = playOne.getSymbol();
+    }
+    else
+    {
+      symbol = playTwo.getSymbol();
+    }
+    
     // Some type of conditional to test is the board has been won.
-    if ()
+    if (boardArr[0][0].equals(symbol)  && boardArr[0][1].equals(symbol)  && boardArr[0][2].equals(symbol) ||
+        boardArr[1][0].equals(symbol)  && boardArr[1][1].equals(symbol)  && boardArr[1][2].equals(symbol) ||
+        boardArr[2][0].equals(symbol)  && boardArr[2][1].equals(symbol)  && boardArr[2][2].equals(symbol) ||
+        
+        boardArr[0][0].equals(symbol)  && boardArr[1][0].equals(symbol)  && boardArr[2][0].equals(symbol) ||
+        boardArr[0][1].equals(symbol)  && boardArr[1][1].equals(symbol)  && boardArr[2][1].equals(symbol) ||
+        boardArr[0][2].equals(symbol)  && boardArr[1][2].equals(symbol)  && boardArr[2][2].equals(symbol) ||
+        
+        boardArr[0][0].equals(symbol)  && boardArr[1][1].equals(symbol)  && boardArr[2][2].equals(symbol) ||
+        boardArr[0][2].equals(symbol)  && boardArr[1][1].equals(symbol)  && boardArr[2][0].equals(symbol))
     {
       this.isWon = true;
       return;
@@ -57,7 +80,7 @@ public class LocalBoard
   /**
   * Checks if a spot on the board is empty.
   */
-  public boolean isSpotEmpty(Coord spot)
+  public boolean isSpotEmpty(int row, int col)
   {
     return (boardArr[row][col] == null);
   }
@@ -65,15 +88,23 @@ public class LocalBoard
   /**
   * Sets a given spot on the board to the current players symbol.
   */
-  public void setSpot(Coord spot)
+  public void setSpot(int row, int col)
   {
     if (isSpotEmpty(row, col) == false)
     {
       return;
     }
 
-    // Code to set spot
-
+    if (playOne.getTurn())
+    {
+      // Code to set spot
+      boardArr[row][col] = playOne.getSymbol();
+    }
+    else
+    {
+      boardArr[row][col] = playTwo.getSymbol();
+    }
+    
     return;    
   }
 
