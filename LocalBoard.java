@@ -58,7 +58,7 @@ public class LocalBoard
       symbol = playTwo.getSymbol();
     }
     
-    // Some type of conditional to test is the board has been won.
+    // Conditional to test is the board has been won.
     if ((boardArr[0][0].equals(symbol)  && boardArr[0][1].equals(symbol)  && boardArr[0][2].equals(symbol)) ||
         (boardArr[1][0].equals(symbol)  && boardArr[1][1].equals(symbol)  && boardArr[1][2].equals(symbol)) ||
         (boardArr[2][0].equals(symbol)  && boardArr[2][1].equals(symbol)  && boardArr[2][2].equals(symbol)) ||
@@ -97,7 +97,6 @@ public class LocalBoard
 
     if (playOne.getTurn())
     {
-      // Code to set spot
       boardArr[row][col] = playOne.getSymbol();
     }
     else
@@ -114,6 +113,15 @@ public class LocalBoard
   public String toString()
   {
     StringBuilder localStr = new StringBuilder();
+    for (int i = 0; i < 3; i++)
+    {
+      localStr.append("|");
+      for (int j = 0; j < 3; j++)
+      {
+        localStr.append(" " + boardArr[i][j]);
+      }
+      localStr.append(" |\n");
+    }
     return localStr.toString();
   }
 
