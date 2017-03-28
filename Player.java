@@ -1,6 +1,6 @@
 public class Player
 {
-  private boolean isTurn;
+  protected boolean isTurn;
   private final char symbol;
   private int lastMove;
   
