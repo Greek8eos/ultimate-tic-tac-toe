@@ -1,6 +1,6 @@
 public class Player
 {
-  protected boolean isTurn;
+  private boolean isTurn;
   private final char symbol;
   private int lastMove;
   
@@ -42,6 +42,11 @@ public class Player
     }
     return;
   }
+  
+  public boolean getTurn()
+  {
+    return this.isTurn;
+  } 
   
   /**
   * Returns this players symbol.
