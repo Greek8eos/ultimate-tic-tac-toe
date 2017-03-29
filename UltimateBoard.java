@@ -5,9 +5,9 @@ public class UltimateBoard
 	// Nine LocalBoard components of the ultimate board.
 	private LocalBoard[][] boardArr;
 	// Indicates if a LocalBoard has been won
-  private boolean isWon;
+  	private boolean isWon;
 	private Player playOne;
-  private Player playTwo;
+  	private Player playTwo;
 
 	/**
 	* Ultimate Board constructor
@@ -50,25 +50,25 @@ public class UltimateBoard
 	public boolean setTurn();
 
 	/**
-  * Returns a boolean indicating whether a LocalBoard has been won or not.
-  */
-  public boolean isWon()
-  {
-    return this.isWon;
-  }
+	* Returns a boolean indicating whether a LocalBoard has been won or not.
+	*/
+	public boolean isWon()
+	{
+		return this.isWon;
+	}
 
 	public void checkWon()
 	{
 		if ((boardArr[0][0].isWon() && boardArr[0][1].isWon() && boardArr[0][2].isWon()) ||
-        (boardArr[1][0].isWon() && boardArr[1][1].isWon() && boardArr[1][2].isWon()) ||
-        (boardArr[2][0].isWon() && boardArr[2][1].isWon() && boardArr[2][2].isWon()) ||
-        
-        (boardArr[0][0].isWon() && boardArr[1][0].isWon() && boardArr[2][0].isWon()) ||
-        (boardArr[0][1].isWon() && boardArr[1][1].isWon() && boardArr[2][1].isWon()) ||
-        (boardArr[0][2].isWon() && boardArr[1][2].isWon() && boardArr[2][2].isWon()) ||
-        
-        (boardArr[0][0].isWon() && boardArr[1][1].isWon() && boardArr[2][2].isWon()) ||
-        (boardArr[0][2].isWon() && boardArr[1][1].isWon() && boardArr[2][0].isWon()))
+		(boardArr[1][0].isWon() && boardArr[1][1].isWon() && boardArr[1][2].isWon()) ||
+		(boardArr[2][0].isWon() && boardArr[2][1].isWon() && boardArr[2][2].isWon()) ||
+
+		(boardArr[0][0].isWon() && boardArr[1][0].isWon() && boardArr[2][0].isWon()) ||
+		(boardArr[0][1].isWon() && boardArr[1][1].isWon() && boardArr[2][1].isWon()) ||
+		(boardArr[0][2].isWon() && boardArr[1][2].isWon() && boardArr[2][2].isWon()) ||
+
+		(boardArr[0][0].isWon() && boardArr[1][1].isWon() && boardArr[2][2].isWon()) ||
+		(boardArr[0][2].isWon() && boardArr[1][1].isWon() && boardArr[2][0].isWon()))
 		{
 			this.isWon = true;
 		}
@@ -76,8 +76,8 @@ public class UltimateBoard
 	}
 
 	/**
-  * Returns a string representation of the board.
-  */
+  	* Returns a string representation of the board.
+  	*/
 	public String toString()
 	{
 		StringBuilder ultimateStr = new StringBuilder();
@@ -90,8 +90,7 @@ public class UltimateBoard
 			}
 			ultimateStr.append("\n\n");
 		}
-    return ultimateStr.toString();
-		hjlhkjhjhjkhkjh;
+    		return ultimateStr.toString();
 	}
 
 	/**
