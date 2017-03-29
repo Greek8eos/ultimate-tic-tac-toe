@@ -2,12 +2,12 @@ import java.util.*;
 
 public class LocalBoard
 {
-  // Each local boards number
+  // Each LocalBoard's number
   private int boardNum;
-  // Indicates if a local board has been won
+  // 2D String array that stores the LocalBoard's symbols.
+  private String[][] boardArr;
+  // Indicates if a LocalBoard has been won
   private boolean isWon;
-  // 2D String array that stores boards symbols.
-  private String boardArr[][];
   private Player playOne;
   private Player playTwo;
   
@@ -27,7 +27,7 @@ public class LocalBoard
   }
   
   /**
-  * Returns this boards number.
+  * Returns this LocalBoard's number.
   */
   public int boardNum()
   {
@@ -35,7 +35,7 @@ public class LocalBoard
   }
   
   /**
-  * Returns a boolean indicating whether a board has been won or not.
+  * Returns a boolean indicating whether a LocalBoard has been won or not.
   */
   public boolean isWon()
   {
@@ -43,8 +43,8 @@ public class LocalBoard
   }
 
   /**
-  * Checks if the board has been won and sets isWon to true if the board has 
-  * been won.
+  * Checks if the board has been won and sets isWon to true if the LocalBoard 
+  * has been won.
   */
   private void checkWon()
   {
@@ -58,27 +58,24 @@ public class LocalBoard
       symbol = playTwo.getSymbol();
     }
     
-    // Conditional to test is the board has been won.
-    if ((boardArr[0][0].equals(symbol)  && boardArr[0][1].equals(symbol)  && boardArr[0][2].equals(symbol)) ||
-        (boardArr[1][0].equals(symbol)  && boardArr[1][1].equals(symbol)  && boardArr[1][2].equals(symbol)) ||
-        (boardArr[2][0].equals(symbol)  && boardArr[2][1].equals(symbol)  && boardArr[2][2].equals(symbol)) ||
+    if ((boardArr[0][0].equals(symbol) && boardArr[0][1].equals(symbol) && boardArr[0][2].equals(symbol)) ||
+        (boardArr[1][0].equals(symbol) && boardArr[1][1].equals(symbol) && boardArr[1][2].equals(symbol)) ||
+        (boardArr[2][0].equals(symbol) && boardArr[2][1].equals(symbol) && boardArr[2][2].equals(symbol)) ||
         
-        (boardArr[0][0].equals(symbol)  && boardArr[1][0].equals(symbol)  && boardArr[2][0].equals(symbol)) ||
-        (boardArr[0][1].equals(symbol)  && boardArr[1][1].equals(symbol)  && boardArr[2][1].equals(symbol)) ||
-        (boardArr[0][2].equals(symbol)  && boardArr[1][2].equals(symbol)  && boardArr[2][2].equals(symbol)) ||
+        (boardArr[0][0].equals(symbol) && boardArr[1][0].equals(symbol) && boardArr[2][0].equals(symbol)) ||
+        (boardArr[0][1].equals(symbol) && boardArr[1][1].equals(symbol) && boardArr[2][1].equals(symbol)) ||
+        (boardArr[0][2].equals(symbol) && boardArr[1][2].equals(symbol) && boardArr[2][2].equals(symbol)) ||
         
-        (boardArr[0][0].equals(symbol)  && boardArr[1][1].equals(symbol)  && boardArr[2][2].equals(symbol)) ||
-        (boardArr[0][2].equals(symbol)  && boardArr[1][1].equals(symbol)  && boardArr[2][0].equals(symbol)))
+        (boardArr[0][0].equals(symbol) && boardArr[1][1].equals(symbol) && boardArr[2][2].equals(symbol)) ||
+        (boardArr[0][2].equals(symbol) && boardArr[1][1].equals(symbol) && boardArr[2][0].equals(symbol)))
     {
       this.isWon = true;
-      return;
     }
-
     return;
   }
 
   /**
-  * Checks if a spot on the board is empty.
+  * Checks if a spot on the LocalBoard is empty.
   */
   public boolean isSpotEmpty(int row, int col)
   {
@@ -86,7 +83,7 @@ public class LocalBoard
   }
 
   /**
-  * Sets a given spot on the board to the current players symbol.
+  * Sets a given spot on the LocalBoard to the current players symbol.
   */
   public void setSpot(int row, int col)
   {
@@ -108,7 +105,7 @@ public class LocalBoard
   }
 
   /**
-  * Returns a string representation of the board.
+  * Returns a string representation of the LocalBoard.
   */
   public String toString()
   {
@@ -126,7 +123,7 @@ public class LocalBoard
   }
 
   /**
-  * Main method used for testing board methods.
+  * Main method used for testing LocalBoard methods.
   */
   // public static void main(String[] args)
   // {
