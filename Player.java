@@ -1,13 +1,15 @@
 public class Player
 {
-  private boolean isTurn;
   private final char symbol;
+  private boolean isTurn;
+  private boolean isWinner;
   private int lastMove;
   
   public Player(char symbol)
   {
     this.symbol = symbol;
     this.isTurn = false;
+    this.isWinner = false;
     this.lastMove = 0;
   }
   
@@ -42,7 +44,10 @@ public class Player
     }
     return;
   }
-  
+
+  /**
+  * Returns whether it's this players turn or not.
+  */
   public boolean getTurn()
   {
     return this.isTurn;
