@@ -8,6 +8,7 @@ public class UltimateBoard
   	private boolean isWon;
 	private Player playOne;
   	private Player playTwo;
+	private int turn=0;
 
 	/**
 	* Ultimate Board constructor
@@ -47,7 +48,20 @@ public class UltimateBoard
 	/**
 	* Change turns between players after a player plays.
 	*/
-	public boolean setTurn();
+	public boolean setTurn()
+	{
+		if(turn= 0|| turn%2=0)
+		{
+			turn ++;
+			return;
+		}
+		else 
+		{
+			turn ++:
+			return;
+		}
+		
+	}
 
 	/**
 	* Returns a boolean indicating whether a LocalBoard has been won or not.
