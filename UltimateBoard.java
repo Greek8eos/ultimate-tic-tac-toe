@@ -53,12 +53,12 @@ public class UltimateBoard
 		if(turn= 0|| turn%2=0)
 		{
 			turn ++;
-			return;
+			return true;
 		}
 		else 
 		{
 			turn ++:
-			return;
+			return true;
 		}
 		
 	}
