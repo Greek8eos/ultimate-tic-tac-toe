@@ -10,6 +10,7 @@ public class LocalBoard
   private boolean isWon;
   private Player playOne;
   private Player playTwo;
+  public String winner;
   
   /**
    * Local Board Costructor
@@ -24,6 +25,7 @@ public class LocalBoard
     this.boardArr = new String[3][3];
     this.playOne = playOne;
     this.playTwo = playTwo;
+    this.winner = null;
   }
   
   /**
@@ -71,6 +73,7 @@ public class LocalBoard
         (boardArr[0][2].equals(symbol) && boardArr[1][1].equals(symbol) && boardArr[2][0].equals(symbol)))
     {
       this.isWon = true;
+      this.winner = symbol;
     }
     return;
   }
