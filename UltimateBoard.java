@@ -64,7 +64,7 @@ public class UltimateBoard
 	}
 
 	/**
-	* Returns a boolean indicating whether a LocalBoard has been won or not.
+	* Returns a boolean indicating whether the Ultimate Board has been won or not.
 	*/
 	public boolean isWon()
 	{
