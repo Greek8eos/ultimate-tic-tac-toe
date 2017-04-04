@@ -5,10 +5,9 @@ public class UltimateBoard
 	// Nine LocalBoard components of the ultimate board.
 	private LocalBoard[][] boardArr;
 	// Indicates if a LocalBoard has been won
-  	private boolean isWon;
+  private boolean isWon;
 	private Player playOne;
-  	private Player playTwo;
-	private int turn=0;
+  private Player playTwo;
 
 	/**
 	* Ultimate Board constructor
@@ -48,7 +47,7 @@ public class UltimateBoard
 	/**
 	* Change turns between players after a player plays.
 	*/
-	public boolean setTurn()
+	public void setTurn()
 	{
 		if(turn= 0|| turn%2=0)
 		{
@@ -61,10 +60,15 @@ public class UltimateBoard
 			return true;
 		}
 		
+		if (playOne.getTurn() && )
+		{
+			
+		}
+		
 	}
 
 	/**
-	* Returns a boolean indicating whether the Ultimate Board has been won or not.
+	* Returns a boolean indicating whether a LocalBoard has been won or not.
 	*/
 	public boolean isWon()
 	{
