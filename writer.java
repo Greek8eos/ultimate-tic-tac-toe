@@ -14,20 +14,14 @@ public class WriteToFileExample1 {
 		FileWriter fw = null;
 
 		try {
-
 			String content = "This is the content to write into file\n";
 
 			fw = new FileWriter(FILENAME);
 			bw = new BufferedWriter(fw);
 			bw.write(content);
-
-}
-
-catch (IOException e) {
-
+		}
+		catch (IOException e) {
 			e.printStackTrace();
-
-		} 
-
-}
+		}
+	}
 }
