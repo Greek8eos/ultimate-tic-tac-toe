@@ -1,8 +1,15 @@
-tracker = 0
+buffersize = 2**16
+with open('/home/edessale/Desktop/receiverInfo.txt') as f: 
+    while True:
+        lines_buffer = f.readlines(buffersize)
+        if not lines_buffer:
+            break
+        for line in lines_buffer:
+	    a = line
+            print line
 
-while True:
-	commandFile = open('/home/eadom/Desktop/writer.txt')
-	commandFile.seek(tracker)
-	command = commandFile.read()
-	fileBytePos = commandFile.tell()
-	commandFile.close()
+commandsToSend = line.split()
+
+for i in range(0,len(commandsToSend)):
+	print "Command %d : %s" % (i, commandsToSend[i])
+
