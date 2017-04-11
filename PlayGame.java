@@ -17,6 +17,9 @@ public class PlayGame
     this.one = new Player('X'); 
     this.two = new Player('O');
     this.ub = new UltimateBoard();
+    
+    //Start new Game
+    System.out.println("Start a new game? (Y/N)");
     Scanner sc = new Scanner(System.in);
     newG = sc.nextChar();
     
@@ -30,25 +33,21 @@ public class PlayGame
     {
       //Anything other than 'Y' for "Yes" results in no new game
       newGame = false;
+      //if no, exit();
+      System.out.println("Exiting...");
+      System.exit(0);
     }
-    
-    //Start new Game
-    System.out.println("Start a new game? (Y/N)");
-    
-    
-    //if no, exit();
-    System.out.println("Exiting...");
-    System.exit(0);
     
     //Get new gamemode
     System.out.println("Gamemodes: \n 1) Winner when one local board is won \n 2) Winner when three local boards are won in a row");
-    
+    chosenMode = sc.nextInt();
+    //Checking the game mode number occurs in the while loop below
     
     //Play Game
     System.out.println("Start playing!");
     
     //While game mode is not won
-    while()
+    while(!gameBoard.isWon)
     {
       switch(chosenMode){
         case 1:
