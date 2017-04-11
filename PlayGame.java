@@ -21,6 +21,7 @@ public class PlayGame
     System.out.println("Start a new game? (Y/N)");
     
     //if no, exit();
+    System.exit(0);
     
     //Get new gamemode
     System.out.println("Gamemodes: \n 1) Winner when one local board is won \n 2) Winner when three local boards are won in a row");
