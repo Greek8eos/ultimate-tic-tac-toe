@@ -6,6 +6,7 @@ public class PlayGame
   Player one;
   Player two;
   UltimateBoard gameBoard;
+  char newG;
   boolean newGame;
   int chosenMode;
   
@@ -16,11 +17,27 @@ public class PlayGame
     this.one = new Player('X'); 
     this.two = new Player('O');
     this.ub = new UltimateBoard();
+    Scanner sc = new Scanner(System.in);
+    newG = sc.nextChar();
+    
+    //Check newG if it equals 'Y' or any other answer
+    if(newG.equals('Y'))
+    {
+      //If input is 'Y' for "Yes" than this results in a new game
+      newGame = true;
+    }
+    else
+    {
+      //Anything other than 'Y' for "Yes" results in no new game
+      newGame = false;
+    }
     
     //Start new Game
     System.out.println("Start a new game? (Y/N)");
     
+    
     //if no, exit();
+    System.out.println("Exiting...");
     System.exit(0);
     
     //Get new gamemode
