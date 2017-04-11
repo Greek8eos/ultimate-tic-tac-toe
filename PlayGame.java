@@ -49,7 +49,8 @@ public class PlayGame
     //While game mode is not won
     while(!gameBoard.isWon)
     {
-      switch(chosenMode){
+      switch(chosenMode)
+      {
         case 1:
           //When a local board is won
           
