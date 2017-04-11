@@ -10,7 +10,7 @@ public class LocalBoard
   private boolean isWon;
   private Player playOne;
   private Player playTwo;
-  public String winner;
+  private String winner;
   
   /**
    * Local Board Costructor
@@ -76,6 +76,11 @@ public class LocalBoard
       this.winner = symbol;
     }
     return;
+  }
+  
+  public String getWinner()
+  {
+    return this.winner;
   }
 
   /**
