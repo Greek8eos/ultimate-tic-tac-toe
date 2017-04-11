@@ -39,7 +39,7 @@ public class PlayGame
     }
     
     //Get new gamemode
-    System.out.println("Gamemodes: \n 1) Winner when one local board is won \n 2) Winner when three local boards are won in a row");
+    System.out.println("Please select a game mode. \n Gamemodes: \n 1) Winner when one local board is won \n 2) Winner when three local boards are won in a row");
     chosenMode = sc.nextInt();
     //Checking the game mode number occurs in the while loop below
     
