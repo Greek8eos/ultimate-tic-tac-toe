@@ -49,15 +49,16 @@ public class UltimateBoard
 	*/
 	public void setTurn()
 	{
-		if(turn= 0|| turn%2=0)
+		int turn = 0;
+		if(turn == 0 || turn%2 == 0)
 		{
-			turn ++;
-			return true;
+			turn++;
+			return;
 		}
 		else 
 		{
-			turn ++:
-			return true;
+			turn++;
+			return;
 		}
 	}
 
