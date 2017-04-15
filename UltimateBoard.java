@@ -49,8 +49,7 @@ public class UltimateBoard
 	*/
 	public void setTurn()
 	{
-		int turn = 0;
-		if(turn == 0 || turn%2 == 0)
+		if(int turn == 0 || turn%2 == 0)
 		{
 			turn++;
 			return;
