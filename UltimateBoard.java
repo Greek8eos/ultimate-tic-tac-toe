@@ -20,6 +20,7 @@ public class UltimateBoard
 		this.isWon = false;
 		this.playOne = new Player("X");
 		this.playTwo = new Player("O");
+		this.playOne.setPlayerTurn();
 
 		int count = 0;
 		for (int i = 0; i < boardArr.length; i++)
