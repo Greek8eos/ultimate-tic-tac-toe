@@ -44,25 +44,25 @@ public class UltimateBoard
 	}
 
 	/**
-  * Returns a boolean indicating whether a UltimateBoard has been won or not.
-  */
-  public boolean isWon()
-  {
-    return this.isWon;
-  }
+ 	 * Returns a boolean indicating whether a UltimateBoard has been won or not.
+ 	 */
+  	public boolean isWon()
+	{
+		return this.isWon;
+  	}
 
 	public void checkWon()
 	{
 		if ((boardArr[0][0].isWon() && boardArr[0][1].isWon() && boardArr[0][2].isWon()) ||
-        (boardArr[1][0].isWon() && boardArr[1][1].isWon() && boardArr[1][2].isWon()) ||
-        (boardArr[2][0].isWon() && boardArr[2][1].isWon() && boardArr[2][2].isWon()) ||
+        	(boardArr[1][0].isWon() && boardArr[1][1].isWon() && boardArr[1][2].isWon()) ||
+        	(boardArr[2][0].isWon() && boardArr[2][1].isWon() && boardArr[2][2].isWon()) ||
         
-        (boardArr[0][0].isWon() && boardArr[1][0].isWon() && boardArr[2][0].isWon()) ||
-        (boardArr[0][1].isWon() && boardArr[1][1].isWon() && boardArr[2][1].isWon()) ||
-        (boardArr[0][2].isWon() && boardArr[1][2].isWon() && boardArr[2][2].isWon()) ||
+        	(boardArr[0][0].isWon() && boardArr[1][0].isWon() && boardArr[2][0].isWon()) ||
+        	(boardArr[0][1].isWon() && boardArr[1][1].isWon() && boardArr[2][1].isWon()) ||
+        	(boardArr[0][2].isWon() && boardArr[1][2].isWon() && boardArr[2][2].isWon()) ||
         
-        (boardArr[0][0].isWon() && boardArr[1][1].isWon() && boardArr[2][2].isWon()) ||
-        (boardArr[0][2].isWon() && boardArr[1][1].isWon() && boardArr[2][0].isWon()))
+        	(boardArr[0][0].isWon() && boardArr[1][1].isWon() && boardArr[2][2].isWon()) ||
+        	(boardArr[0][2].isWon() && boardArr[1][1].isWon() && boardArr[2][0].isWon()))
 		{
 			this.isWon = true;
 		}
@@ -70,8 +70,8 @@ public class UltimateBoard
 	}
 
 	/**
-  * Returns a string representation of the board.
-  */
+  	* Returns a string representation of the board.
+  	*/
 	public String toString()
 	{
 		StringBuilder ultimateStr = new StringBuilder();
