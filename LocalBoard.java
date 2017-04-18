@@ -73,7 +73,6 @@ public class LocalBoard
         (boardArr[0][2].equals(symbol) && boardArr[1][1].equals(symbol) && boardArr[2][0].equals(symbol)))
     {
       this.isWon = true;
-      
       this.winner = symbol;
     }
     return;
@@ -91,15 +90,18 @@ public class LocalBoard
   {
     return (boardArr[row][col] == null);
   }
+  
+  
 
   /**
   * Sets a given spot on the LocalBoard to the current players symbol.
   */
-  public void setSpot(int row, int col)
-  {
+  public boolean setSpot(int row, int col)
+  { 
+    //Check if spot is taken
     if (isSpotEmpty(row, col) == false)
     {
-      return;
+      return false;
     }
 
     if (playOne.getTurn())
@@ -111,7 +113,7 @@ public class LocalBoard
       boardArr[row][col] = playTwo.getSymbol();
     }
     
-    return;    
+    return true;    
   }
 
   /**
