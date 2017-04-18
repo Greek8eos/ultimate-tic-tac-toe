@@ -29,10 +29,15 @@ public class Player
     return this.lastMove;
   }
   
+  public void setPlayerTurn()
+  {
+    
+  }
+  
   /**
   * Changes this players turn.
   */
-  public void setTurn()
+  public void setSwitchTurn()
   {
     if (this.isTurn == false)
     {
