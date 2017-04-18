@@ -78,16 +78,17 @@ public class LocalBoard
     return;
   }
   
-  public Player getWinner()
+  public String getWinner()
   {
     if (playOne.getSymbol() == this.winner)
     {
-      return playOne;
+      return playOne.getSymbol();
     }
     else if (playTwo.getSymbol() == this.winner)
     {
-      return playTwo;
+      return playTwo.getSymbol();
     }
+    reutrn null;
   }
 
   /**
