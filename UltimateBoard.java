@@ -5,9 +5,9 @@ public class UltimateBoard
 	// Nine UltimateBoard components of the ultimate board.
 	private LocalBoard[][] boardArr;
 	// Indicates if a UltimateBoard has been won
-  private boolean isWon;
+  	private boolean isWon;
 	private Player playOne;
-  private Player playTwo;
+  	private Player playTwo;
 
 	/**
 	* Ultimate Board constructor
