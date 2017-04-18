@@ -8,6 +8,7 @@ public class UltimateBoard
   	private boolean isWon;
 	private Player playOne;
   	private Player playTwo;
+	private boolean turn;
 
 	/**
 	* Ultimate Board constructor
@@ -36,16 +37,9 @@ public class UltimateBoard
 	*/
 	public void setTurn()
 	{
-		if(int turn == 0 || turn%2 == 0)
-		{
-			turn++;
-			return;
-		}
-		else 
-		{
-			turn++;
-			return;
-		}
+		playOne.setTurn();
+		playTwo.setTurn();
+		return;
 	}
 
 	/**
