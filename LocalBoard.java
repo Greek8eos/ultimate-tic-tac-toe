@@ -80,7 +80,7 @@ public class LocalBoard
   
   public String getWinner()
   {
-    return this.winner;
+    
   }
 
   /**
