@@ -29,9 +29,10 @@ public class Player
     return this.lastMove;
   }
   
+  /* Used to set First player's turn */
   public void setPlayerTurn()
   {
-    
+    this.isTurn = true;
   }
   
   /**
