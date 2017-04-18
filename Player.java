@@ -37,7 +37,7 @@ public class Player
   /**
   * Changes this players turn.
   */
-  public void setSwitchTurn()
+  public void switchTurn()
   {
     if (this.isTurn == false)
     {
