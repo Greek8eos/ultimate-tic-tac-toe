@@ -1,11 +1,11 @@
 public class Player
 {
-  private final char symbol;
+  private final String symbol;
   private boolean isTurn;
   private boolean isWinner;
   private int lastMove;
   
-  public Player(char symbol)
+  public Player(String symbol)
   {
     this.symbol = symbol;
     this.isTurn = false;
