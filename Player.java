@@ -13,22 +13,6 @@ public class Player
     this.lastMove = 0;
   }
   
-  /**
-  * Sets this players lastMove.
-  */
-  public void setLastMove(int last)
-  {
-    this.lastMove = last;
-  }
-  
-  /**
-  * Returns this players lastMove.
-  */
-  public int getLastMove()
-  {
-    return this.lastMove;
-  }
-  
   /* Used to set First player's turn */
   public void setPlayerTurn()
   {
