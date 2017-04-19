@@ -42,27 +42,22 @@ public class PlayGame
     //Play Game
     System.out.println("Start playing!");
     
-    //While game mode is not won
-    while(!gameBoard.isWon)
+    switch(chosenMode)
     {
-      switch(chosenMode)
-      {
-        case 1:
-          //When a local board is won
-          
-          break;
-        case 2:
-          //When three local boards are won in a row
-          
-          break;
-        default:
-          System.out.println("ERROR: GameMode not recognized. Enter new gamemode information: ");
-          //Read in new game mode input to follow game mode 1 or 2
-          
-          break;
-      }
+      case 1:
+        
+        
+        break;
+      case 2:
+        
+        
+        break;
+      default:
+        while(chosenMode != 1 || chosenMode != 2)
+        {
+          System.out.println("Error: Chosen mode number not rcognized. Enter new input:");
+          chosenMode = sc.nextInt();
+        }
     }
-    
-    
   }
 }
