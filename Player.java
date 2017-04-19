@@ -62,7 +62,7 @@ public class Player
   /**
   * Returns this players symbol.
   */
-  public char getSymbol()
+  public String getSymbol()
   {
     return this.symbol;
   }
