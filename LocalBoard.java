@@ -104,12 +104,13 @@ public class LocalBoard
   /**
   * Sets a given spot on the LocalBoard to the current players symbol.
   */
-  public boolean setSpot(int row, int col)
+  public int[] setSpot(int row, int col)
   { 
     //Check if spot is taken
+    int[] spotArray = new int[2];
     if (isSpotEmpty(row, col) == false)
     {
-      return false;
+      return null;
     }
 
     if (playOne.getTurn())
@@ -120,8 +121,9 @@ public class LocalBoard
     {
       boardArr[row][col] = playTwo.getSymbol();
     }
-    
-    return true;    
+    spotArray[0] = row;
+    spotArray[1] = col;
+    return spotArray;    
   }
 
   /**
