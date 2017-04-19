@@ -44,7 +44,13 @@ public class PlayGame
     
     switch(chosenMode)
     {
+      /*Player One begins game, with turn equals true
+      Allow Player one to pick any spot on UltimateBoard
+      The position chosen dictates the next local board to be used
+      Whenever a local board is won, the game ends
+      */
       case 1:
+        gameboard.playOne.setPlayerTurn();
         
         
         break;
