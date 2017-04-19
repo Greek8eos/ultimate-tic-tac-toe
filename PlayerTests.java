@@ -43,4 +43,30 @@ public class PlayerTests
     assertEquals("O", playOne.getSymbol());
     assertEquals("X", playTwo.getSymbol());
   }  
+    /*--------------------------------------------------------------------------------------------------
+   * Tests setPlayerTurn() and getTurn()
+   */
+  @Test public void setPlayerTurnTest()
+  {
+	  Player playOne= new Player("X");
+	  Player playTwo= new Player("O");
+	  playOne.setPlayerTurn();
+	  playTwo.setPlayerTurn();
+	  assertEquals(playOne.getTurn(),true);
+	  assertEquals(playTwo.getTurn(),true);
+  }
+  /*---------------------------------------------------------------------------------------------------
+   * Tests switchTurn()
+   */
+  @Test public void switchTurnTest()
+  {
+	  Player playOne= new Player("X");
+	  Player playTwo= new Player("O");
+	  playOne.setPlayerTurn();
+	  playOne.switchTurn();
+	  playTwo.switchTurn();
+	  assertEquals(playOne.getTurn(), false);
+	  assertEquals(playTwo.getTurn(),true);
+	  
+  }
 }
