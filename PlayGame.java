@@ -51,10 +51,17 @@ public class PlayGame
       */
       case 1:
         gameboard.playOne.setPlayerTurn();
+        //Player One picks a position (A local board and local board position)
+        //How is this represented? Are we receiving a string or input from the click in the UI
+        //Player Two picks a position in a local board dictated by the previous position
+        //This should continue in a loop until one local board is won
         
         
         break;
       case 2:
+        //Player On picks a position (A local board and local board position)
+        //Player Two picks a position in a local board dictated by the previous position
+        //This should continue in a loop until three local boards are won in a row
         
         
         break;
