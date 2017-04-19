@@ -5,6 +5,7 @@ public class UltimateBoard
 	// Nine UltimateBoard components of the ultimate board.
 	private LocalBoard[][] boardArr;
 	// Indicates if a UltimateBoard has been won
+	private String winner;
   	private boolean isWon;
 	private Player playOne;
   	private Player playTwo;
@@ -88,6 +89,7 @@ public class UltimateBoard
 		     (boardArr[2][0].isWon() &&  boardArr[0][0].getWinner().equals(playOne.getSymbol())))
 		{
 			this.isWon = true;
+			winner = "playOne";
 		}
 		
 		//Testing if PlayerTwo Won the Game
@@ -125,6 +127,7 @@ public class UltimateBoard
 		     (boardArr[2][0].isWon() &&  boardArr[0][0].getWinner().equals(playTwo.getSymbol())))
 		{
 			this.isWon = true;
+			winner = "playOne";
 		}
 		return;
 	}
