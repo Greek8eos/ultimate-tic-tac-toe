@@ -48,49 +48,61 @@ public class LocalBoard
   * Checks if the board has been won and sets isWon to true if the LocalBoard 
   * has been won.
   */
-  private void checkWon()
+  private boolean checkWon()  // George: changed to boolean so getWinner() can use it
   {
     String symbol = null;
     if (playOne.getTurn())
     {
       symbol = playOne.getSymbol();
+      System.out.println("X");
+      
+    }
+    else if(playTwo.getTurn())
+    {
+      symbol = playTwo.getSymbol();  
     }
     else
-    {
-      symbol = playTwo.getSymbol();
+    {// George: in case a turn has not been set (when localboard is constructed)
+    	return false;
     }
     
     //All Possible combinations in a local board for a win
-    if ((boardArr[0][0].equals(symbol) && boardArr[0][1].equals(symbol) && boardArr[0][2].equals(symbol)) ||
-        (boardArr[1][0].equals(symbol) && boardArr[1][1].equals(symbol) && boardArr[1][2].equals(symbol)) ||
-        (boardArr[2][0].equals(symbol) && boardArr[2][1].equals(symbol) && boardArr[2][2].equals(symbol)) ||
+    if (((boardArr[0][0].equals(symbol)) && (boardArr[1][1].equals(symbol)) && (boardArr[2][2].equals(symbol))) ||
+        ((boardArr[0][2].equals(symbol)) && (boardArr[1][1].equals(symbol)) && (boardArr[2][0].equals(symbol))) ||
         
-        (boardArr[0][0].equals(symbol) && boardArr[1][0].equals(symbol) && boardArr[2][0].equals(symbol)) ||
-        (boardArr[0][1].equals(symbol) && boardArr[1][1].equals(symbol) && boardArr[2][1].equals(symbol)) ||
-        (boardArr[0][2].equals(symbol) && boardArr[1][2].equals(symbol) && boardArr[2][2].equals(symbol)) ||
+        ((boardArr[0][0].equals(symbol)) && (boardArr[0][1].equals(symbol)) && (boardArr[0][2].equals(symbol))) ||
+        ((boardArr[1][0].equals(symbol)) && (boardArr[1][1].equals(symbol)) && (boardArr[1][2].equals(symbol))) ||
+        ((boardArr[2][0].equals(symbol)) && (boardArr[2][1].equals(symbol)) && (boardArr[2][2].equals(symbol))) ||
         
-        (boardArr[0][0].equals(symbol) && boardArr[1][1].equals(symbol) && boardArr[2][2].equals(symbol)) ||
-        (boardArr[0][2].equals(symbol) && boardArr[1][1].equals(symbol) && boardArr[2][0].equals(symbol)))
+    	((boardArr[0][0].equals(symbol)) && (boardArr[1][0].equals(symbol)) && (boardArr[2][0].equals(symbol))) ||
+    	((boardArr[0][1].equals(symbol)) && (boardArr[1][1].equals(symbol)) && (boardArr[2][1].equals(symbol))) ||
+    	((boardArr[0][2].equals(symbol)) && (boardArr[1][2].equals(symbol)) && (boardArr[2][2].equals(symbol))))
     {
+    	
       this.isWon = true;
       this.winner = symbol;
+      return true; //George: returns true if a winner is found
     }
-    return;
+    return false; // George: returns false stating there is no winner
   }
   
   public String getWinner()
   {
-    if (playOne.getSymbol() == this.winner)
-    {
-      return playOne.getSymbol();
-    }
-    else if (playTwo.getSymbol() == this.winner)
-    {
-      return playTwo.getSymbol();
-    }
-    reutrn null;
-  }
+	  System.out.println("here");
+	if(checkWon()==true) //George: checks to see if checkWon is true
+	{
 
+		if (playOne.getSymbol() == this.winner)
+		{
+			return playOne.getSymbol();
+		}
+		else if (playTwo.getSymbol() == this.winner)
+		{
+			return playTwo.getSymbol();
+		}
+	}
+		return null;
+  }
   /**
   * Checks if a spot on the LocalBoard is empty.
   */
