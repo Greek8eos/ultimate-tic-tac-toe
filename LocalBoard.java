@@ -54,8 +54,7 @@ public class LocalBoard
     if (playOne.getTurn())
     {
       symbol = playOne.getSymbol();
-      System.out.println("X");
-      
+       
     }
     else if(playTwo.getTurn())
     {
