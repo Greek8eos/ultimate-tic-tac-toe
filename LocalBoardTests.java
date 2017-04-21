@@ -10,7 +10,7 @@ import java.util.*;
 * javac -cp .:junit.jar *.java
 * java -cp .:junit.jar LocalBoardTests
 */
-public class LocalBoardTest
+public class LocalBoardTests
 {
   public static void main(String args[])
   {
