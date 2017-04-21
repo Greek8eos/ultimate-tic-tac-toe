@@ -39,8 +39,8 @@ public class UltimateBoard
 	*/
 	public void setTurn()
 	{
-		playOne.setTurn();
-		playTwo.setTurn();
+		playOne.switchTurn();
+		playTwo.switchTurn();
 		return;
 	}
 
@@ -56,75 +56,75 @@ public class UltimateBoard
 	{
 		//Testing if PlayerOne Won the Game
 		if (
-		    ((boardArr[0][0].isWon() &&  boardArr[0][0].getWinner().equals(playOne.getSymbol()) &&
-		    (boardArr[0][1].isWon() &&  boardArr[0][1].getWinner().equals(playOne.getSymbol()) &&
-		    (boardArr[0][2].isWon() &&  boardArr[0][2].getWinner().equals(playOne.getSymbol())) ||
+		    ((boardArr[0][0].isWon() &&  boardArr[0][0].getWinner().equals(playOne.getSymbol()))  &&
+		     (boardArr[0][1].isWon() &&  boardArr[0][1].getWinner().equals(playOne.getSymbol()))  &&
+		     (boardArr[0][2].isWon() &&  boardArr[0][2].getWinner().equals(playOne.getSymbol()))) ||
 		     
-		    ((boardArr[1][0].isWon() &&  boardArr[1][0].getWinner().equals(playOne.getSymbol()) &&
-		    (boardArr[1][1].isWon() &&  boardArr[1][1].getWinner().equals(playOne.getSymbol()) &&
-		    (boardArr[1][2].isWon() &&  boardArr[1][2].getWinner().equals(playOne.getSymbol())) ||
+		    ((boardArr[1][0].isWon() &&  boardArr[1][0].getWinner().equals(playOne.getSymbol()))  &&
+		     (boardArr[1][1].isWon() &&  boardArr[1][1].getWinner().equals(playOne.getSymbol()))  &&
+		     (boardArr[1][2].isWon() &&  boardArr[1][2].getWinner().equals(playOne.getSymbol()))) ||
 		      
-		    ((boardArr[2][0].isWon() &&  boardArr[2][0].getWinner().equals(playOne.getSymbol()) &&
-		    (boardArr[2][1].isWon() &&  boardArr[2][1].getWinner().equals(playOne.getSymbol()) &&
-		    (boardArr[2][2].isWon() &&  boardArr[2][2].getWinner().equals(playOne.getSymbol())) ||
+		    ((boardArr[2][0].isWon() &&  boardArr[2][0].getWinner().equals(playOne.getSymbol()))  &&
+		     (boardArr[2][1].isWon() &&  boardArr[2][1].getWinner().equals(playOne.getSymbol()))  &&
+		     (boardArr[2][2].isWon() &&  boardArr[2][2].getWinner().equals(playOne.getSymbol()))) ||
         
-		    ((boardArr[0][0].isWon() &&  boardArr[0][0].getWinner().equals(playOne.getSymbol()) &&
-		     (boardArr[1][0].isWon() &&  boardArr[1][0].getWinner().equals(playOne.getSymbol()) &&
-		     (boardArr[2][0].isWon() &&  boardArr[2][0].getWinner().equals(playOne.getSymbol())) ||
+		    ((boardArr[0][0].isWon() &&  boardArr[0][0].getWinner().equals(playOne.getSymbol()))  &&
+		     (boardArr[1][0].isWon() &&  boardArr[1][0].getWinner().equals(playOne.getSymbol()))  &&
+		     (boardArr[2][0].isWon() &&  boardArr[2][0].getWinner().equals(playOne.getSymbol()))) ||
 		     
-		    ((boardArr[0][1].isWon() &&  boardArr[0][1].getWinner().equals(playOne.getSymbol()) &&
-		     (boardArr[1][1].isWon() &&  boardArr[0][0].getWinner().equals(playOne.getSymbol()) &&
-		     (boardArr[2][1].isWon() &&  boardArr[0][0].getWinner().equals(playOne.getSymbol())) ||
+		    ((boardArr[0][1].isWon() &&  boardArr[0][1].getWinner().equals(playOne.getSymbol()))  &&
+		     (boardArr[1][1].isWon() &&  boardArr[1][1].getWinner().equals(playOne.getSymbol()))  &&
+		     (boardArr[2][1].isWon() &&  boardArr[2][1].getWinner().equals(playOne.getSymbol()))) ||
 		     
-		    ((boardArr[0][2].isWon() &&  boardArr[0][0].getWinner().equals(playOne.getSymbol()) &&
-		     (boardArr[1][2].isWon() &&  boardArr[0][0].getWinner().equals(playOne.getSymbol()) &&
-		     (boardArr[2][2].isWon() &&  boardArr[0][0].getWinner().equals(playOne.getSymbol())) ||
+		    ((boardArr[0][2].isWon() &&  boardArr[0][2].getWinner().equals(playOne.getSymbol()))  &&
+		     (boardArr[1][2].isWon() &&  boardArr[1][2].getWinner().equals(playOne.getSymbol()))  &&
+		     (boardArr[2][2].isWon() &&  boardArr[2][2].getWinner().equals(playOne.getSymbol()))) ||
         
-		    ((boardArr[0][0].isWon() &&  boardArr[0][0].getWinner().equals(playOne.getSymbol()) &&
-		     (boardArr[1][1].isWon() &&  boardArr[0][0].getWinner().equals(playOne.getSymbol())) &&
-		     (boardArr[2][2].isWon() &&  boardArr[0][0].getWinner().equals(playOne.getSymbol())) ||
+		    ((boardArr[0][0].isWon() &&  boardArr[0][0].getWinner().equals(playOne.getSymbol()))  &&
+		     (boardArr[1][1].isWon() &&  boardArr[1][1].getWinner().equals(playOne.getSymbol()))  &&
+		     (boardArr[2][2].isWon() &&  boardArr[2][2].getWinner().equals(playOne.getSymbol()))) ||
 		      
-		    ((boardArr[0][2].isWon() &&  boardArr[0][0].getWinner().equals(playOne.getSymbol()) &&
-		     (boardArr[1][1].isWon() &&  boardArr[0][0].getWinner().equals(playOne.getSymbol()) &&
-		     (boardArr[2][0].isWon() &&  boardArr[0][0].getWinner().equals(playOne.getSymbol())))
-		{
-			this.isWon = true;
-			winner = "playOne";
-		}
+		    ((boardArr[0][2].isWon() &&  boardArr[0][2].getWinner().equals(playOne.getSymbol()))  &&
+		     (boardArr[1][1].isWon() &&  boardArr[1][1].getWinner().equals(playOne.getSymbol()))  &&
+		     (boardArr[2][0].isWon() &&  boardArr[2][0].getWinner().equals(playOne.getSymbol()))))
+		  {
+		    	this.isWon = true;
+		    	winner = "playOne";
+		   }
 		
 		//Testing if PlayerTwo Won the Game
-		if (
-		    ((boardArr[0][0].isWon() &&  boardArr[0][0].getWinner().equals(playTwo.getSymbol()) &&
-		     (boardArr[0][1].isWon() &&  boardArr[0][1].getWinner().equals(playTwo.getSymbol()) &&
-		     (boardArr[0][2].isWon() &&  boardArr[0][2].getWinner().equals(playTwo.getSymbol())) ||
+		if(
+		    ((boardArr[0][0].isWon() &&  boardArr[0][0].getWinner().equals(playTwo.getSymbol()))  &&
+		     (boardArr[0][1].isWon() &&  boardArr[0][1].getWinner().equals(playTwo.getSymbol()))  &&
+		     (boardArr[0][2].isWon() &&  boardArr[0][2].getWinner().equals(playTwo.getSymbol()))) ||
 		      
-		    ((boardArr[1][0].isWon() &&  boardArr[1][0].getWinner().equals(playTwo.getSymbol()) &&
-		    (boardArr[1][1].isWon() &&  boardArr[1][1].getWinner().equals(playTwo.getSymbol()) &&
-		    (boardArr[1][2].isWon() &&  boardArr[1][2].getWinner().equals(playTwo.getSymbol())) ||
+		    ((boardArr[1][0].isWon() &&  boardArr[1][0].getWinner().equals(playTwo.getSymbol()))  &&
+		     (boardArr[1][1].isWon() &&  boardArr[1][1].getWinner().equals(playTwo.getSymbol()))  &&
+		     (boardArr[1][2].isWon() &&  boardArr[1][2].getWinner().equals(playTwo.getSymbol()))) ||
 		     
-		    ((boardArr[2][0].isWon() &&  boardArr[2][0].getWinner().equals(playTwo.getSymbol()) &&
-		     (boardArr[2][1].isWon() &&  boardArr[2][1].getWinner().equals(playTwo.getSymbol()) &&
-		     (boardArr[2][2].isWon() &&  boardArr[2][2].getWinner().equals(playTwo.getSymbol())) ||
+		    ((boardArr[2][0].isWon() &&  boardArr[2][0].getWinner().equals(playTwo.getSymbol()))  &&
+		     (boardArr[2][1].isWon() &&  boardArr[2][1].getWinner().equals(playTwo.getSymbol()))  &&
+		     (boardArr[2][2].isWon() &&  boardArr[2][2].getWinner().equals(playTwo.getSymbol()))) ||
         
-		    ((boardArr[0][0].isWon() &&  boardArr[0][0].getWinner().equals(playTwo.getSymbol()) &&
-		     (boardArr[1][0].isWon() &&  boardArr[1][0].getWinner().equals(playTwo.getSymbol()) &&
-		     (boardArr[2][0].isWon() &&  boardArr[2][0].getWinner().equals(playTwo.getSymbol())) ||
+		    ((boardArr[0][0].isWon() &&  boardArr[0][0].getWinner().equals(playTwo.getSymbol()))  &&
+		     (boardArr[1][0].isWon() &&  boardArr[1][0].getWinner().equals(playTwo.getSymbol()))  &&
+		     (boardArr[2][0].isWon() &&  boardArr[2][0].getWinner().equals(playTwo.getSymbol()))) ||
 		      
-		    ((boardArr[0][1].isWon() &&  boardArr[0][1].getWinner().equals(playTwo.getSymbol()) &&
-		     (boardArr[1][1].isWon() &&  boardArr[0][0].getWinner().equals(playTwo.getSymbol()) &&
-		     (boardArr[2][1].isWon() &&  boardArr[0][0].getWinner().equals(playTwo.getSymbol())) ||
+		    ((boardArr[0][1].isWon() &&  boardArr[0][1].getWinner().equals(playTwo.getSymbol()))  &&
+		     (boardArr[1][1].isWon() &&  boardArr[0][0].getWinner().equals(playTwo.getSymbol()))  &&
+		     (boardArr[2][1].isWon() &&  boardArr[0][0].getWinner().equals(playTwo.getSymbol()))) ||
 		      
-		    ((boardArr[0][2].isWon() &&  boardArr[0][0].getWinner().equals(playTwo.getSymbol()) &&
-		     (boardArr[1][2].isWon() &&  boardArr[0][0].getWinner().equals(playTwo.getSymbol()) &&
-		     (boardArr[2][2].isWon() &&  boardArr[0][0].getWinner().equals(playTwo.getSymbol())) ||
+		    ((boardArr[0][2].isWon() &&  boardArr[0][0].getWinner().equals(playTwo.getSymbol()))  &&
+		     (boardArr[1][2].isWon() &&  boardArr[0][0].getWinner().equals(playTwo.getSymbol()))  &&
+		     (boardArr[2][2].isWon() &&  boardArr[0][0].getWinner().equals(playTwo.getSymbol()))) ||
         
-		    ((boardArr[0][0].isWon() &&  boardArr[0][0].getWinner().equals(playTwo.getSymbol()) &&
+		    ((boardArr[0][0].isWon() &&  boardArr[0][0].getWinner().equals(playTwo.getSymbol()))  &&
 		     (boardArr[1][1].isWon() &&  boardArr[0][0].getWinner().equals(playTwo.getSymbol())) &&
-		     (boardArr[2][2].isWon() &&  boardArr[0][0].getWinner().equals(playTwo.getSymbol())) ||
+		     (boardArr[2][2].isWon() &&  boardArr[0][0].getWinner().equals(playTwo.getSymbol()))) ||
 		      
-		    ((boardArr[0][2].isWon() &&  boardArr[0][0].getWinner().equals(playTwo.getSymbol()) &&
-		     (boardArr[1][1].isWon() &&  boardArr[0][0].getWinner().equals(playTwo.getSymbol()) &&
-		     (boardArr[2][0].isWon() &&  boardArr[0][0].getWinner().equals(playTwo.getSymbol())))
+		    ((boardArr[0][2].isWon() &&  boardArr[0][0].getWinner().equals(playTwo.getSymbol())) &&
+		     (boardArr[1][1].isWon() &&  boardArr[0][0].getWinner().equals(playTwo.getSymbol())) &&
+		     (boardArr[2][0].isWon() &&  boardArr[0][0].getWinner().equals(playTwo.getSymbol()))))
 		{
 			this.isWon = true;
 			winner = "playOne";
