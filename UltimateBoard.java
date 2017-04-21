@@ -33,6 +33,16 @@ public class UltimateBoard
 			}
 		}
 	}
+	
+	public Player getPlayerOne()
+	{
+		return playOne;
+	}
+	
+	public Player getPlayerTwo()
+	{
+		return playTwo;
+	}
 
 	/**
 	* Change turns between players after a player plays.
