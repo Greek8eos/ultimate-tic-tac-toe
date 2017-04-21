@@ -87,9 +87,21 @@ public class LocalBoard
   
   public String getWinner()
   {
+
 	  System.out.println("here");
 	if(checkWon()==true) //George: checks to see if checkWon is true
 	{
+    //Comparing Strings. Changed from "==" to .equals
+    if (playOne.getSymbol().equals(this.winner))
+    {
+      return playOne.getSymbol();
+    }
+    else if (playTwo.getSymbol().equals(this.winner))
+    {
+      return playTwo.getSymbol();
+    }
+    return null;
+  }
 
 		if (playOne.getSymbol() == this.winner)
 		{
