@@ -15,34 +15,6 @@ public class PlayGame
     //Choose gamemodes, Play games, etc.
     gameBoard = new UltimateBoard();
     
-  /* THIS IS NOT NEEDED:  //Start new Game
-    System.out.println("Start a new game? (Y/N)");
-    Scanner sc = new Scanner(System.in);
-    newG = sc.next();
-    
-    //Check newG if it equals 'Y' or any other answer
-    if(newG.equals("Y"))
-    {
-      //If input is 'Y' for "Yes" than this results in a new game
-      newGame = true;
-    }
-    else
-    {
-      //Anything other than 'Y' for "Yes" results in no new game
-      newGame = false;
-      //if no, exit();
-      System.out.println("Exiting...");
-      System.exit(0);
-    }
-    
-    //Get new gamemode
-    System.out.println("Please select a game mode. \n Gamemodes: \n 1) Winner when one local board is won \n 2) Winner when three local boards are won in a row");
-    chosenMode = sc.nextInt();
-    //Checking the game mode number occurs in the while loop below
-    
-    //Play Game
-    System.out.println("Start playing!"); */
-    
     // read mode from python
     
     switch(chosenMode)
@@ -58,44 +30,40 @@ public class PlayGame
         //How is this represented? Are we receiving a string or input from the click in the UI
         //Player Two picks a position in a local board dictated by the previous position
         //This should continue in a loop until one local board is won
-        	int localBoardNumber=0;
-        	/* while(!gameBoard.getBoardArr(localBoardNumber).checkWon())
-        	 * {
-        	 * 	gameBoard.playOne.setPlayerTurn();
-        	 * 
-        	 * 	receive player input
-        	 * lnum= local board number from python;
-        	 * 
-        	 * if(gameBoard.getBoardArr(localBoardNumber).isSpotEmpty(row, col))
-        	 * {
-        	 * 		gameBoard.getBoardArr(localBoardNumber).setSpot(row,col))
-        	 * 
-        	 * 		if(gameBoard.getBoardArr(localBoardNumber).checkWon())
-        	 * 		{
-        	 * 		//send to python playerOne won
-        	 * 		//receive whether NewGame or Quit
-        	 * 		
-        	 * 		//Check newG if it equals 'Y' or any other answer
-        	 * 		
-    	     *		if(newGame)
-    		 *			{
-      		 *		//If input is 'Y' for "Yes" than this results in a new game
-      		 *			 main();
-      		 *			 exit();
-    		 *			}
-    		 *			else
-    		 *			{
-      		 *				System.exit(0);
-    		 * 			}
-        	 * 		
-        	 * 		}
-        	 * 		else
-        	 * 		{
-        	 * 			int[]next
-        	 * 			
-        	 * 	}
-        	 * }
-        	*/
+        int localBoardNumber = 0;
+        gameBoard.playOne.setPlayerTurn();
+        while(!gameBoard.getBoardArr(localBoardNumber).checkWon())
+        {
+         //  receive player input
+         // lnum= local board number from python;
+
+          if(gameBoard.getBoardArr(localBoardNumber).isSpotEmpty(row, col))
+          {
+            int[] nextLBArr = gameBoard.getBoardArr(localBoardNumber).setSpot(row,col))
+       
+            if(gameBoard.getBoardArr(localBoardNumber).checkWon())
+            {
+             //send to python playerOne won
+             //receive whether NewGame or Quit
+             
+             //Check newG if it equals 'Y' or any other answer
+             
+              if(newGame)
+              {
+              // If input is 'Y' for "Yes" than this results in a new game
+              //    main();
+              //    exit();
+              }
+              else
+              {
+                 System.exit(0);
+              }
+
+              int nextLBnum = 3 * nextLBArr[0] + nextLBArr[1];
+            }
+          }
+        }
+        
         
         break;
       case 2:
