@@ -10,7 +10,7 @@ import java.util.*;
 * javac -cp .:junit.jar *.java
 * java -cp .:junit.jar LocalBoardTests
 */
-public class LocalBoardTests
+public class LocalBoardTest
 {
   public static void main(String args[])
   {
@@ -47,11 +47,12 @@ public class LocalBoardTests
 	 Player playOne= new Player("X");
 	 Player playTwo= new Player("O");
 	 LocalBoard lb= new LocalBoard(0,playOne,playTwo);
-	  
-	 assertEquals(lb.setSpot(1,1),true);
+	 lb.setSpot(1, 1);
+	 
+	 assertEquals(lb.isSpotEmpty(1,1), false);
  }
 /*----------------------------------------------------------------------------------------------------
- * Test to isSpotEmpty when it isnt
+ * Test to isSpotEmpty when it isn't
  */
  @Test public void isSpotEmptyTest2()
  {
@@ -75,8 +76,8 @@ public class LocalBoardTests
 	 lb.setSpot(1, 1);
 	 playOne.switchTurn();
 	 playTwo.switchTurn();
-	  
-	 assertEquals(lb.setSpot(1, 1), false);
+	 lb.setSpot(0, 1);
+	 assertEquals(lb.isSpotEmpty(0,1), false);
 	  
  }
 /*----------------------------------------------------------------------------------------------------
@@ -93,10 +94,10 @@ public class LocalBoardTests
 	 playOne.switchTurn();
 	 playTwo.switchTurn();
 	 lb.setSpot(1, 1);
-	 assertEquals(lb.setSpot(1, 1),false);
+	 assertEquals(lb.isSpotEmpty(1, 1), false);
 	 lb.setSpot(0, 0);
 	 assertEquals(lb.isSpotEmpty(0, 0), false);
-	 assertEquals("| O null null |\n| null X null |\n| null null null |\n", lb.toString());
+	 assertEquals("| O _ _ |\n| _ X _ |\n| _ _ _ |\n", lb.toString());
   }
 /*----------------------------------------------------------------------------------------------------
  * Test if turn switching with spot setting is correct
@@ -129,7 +130,7 @@ public class LocalBoardTests
  	 playTwo.switchTurn();
  	 lb.setSpot(0, 0);
  	 assertEquals(lb.isSpotEmpty(0, 0),false);
- 	 assertEquals("| X null O |\n| null X O |\n| null null X |\n",lb.toString());
+ 	 assertEquals("| X _ O |\n| _ X O |\n| _ _ X |\n",lb.toString());
  }
 /*----------------------------------------------------------------------------------------------------
  * Test if diagonal win condition is true top left to bottom right
@@ -162,8 +163,9 @@ public class LocalBoardTests
   	 playTwo.switchTurn();
   	 lb.setSpot(0, 0);
   	 assertEquals(lb.isSpotEmpty(0, 0),false);
-  	 assertEquals("| X null O |\n| null X O |\n| null null X |\n",lb.toString());
-  	  
+  	 System.out.println(lb.toString());
+  	 assertEquals("| X _ O |\n| _ X O |\n| _ _ X |\n",lb.toString());
+  	 lb.checkWon();
   	 assertEquals("X", lb.getWinner());
  }
 /*----------------------------------------------------------------------------------------------------
@@ -176,31 +178,37 @@ public class LocalBoardTests
    	 LocalBoard lb= new LocalBoard(0,playOne,playTwo);
    	 playOne.setPlayerTurn();
    	 lb.setSpot(1, 0);
+   	 lb.checkWon();
    	 assertEquals(lb.isSpotEmpty(1, 0),false);
    	  
    	 playOne.switchTurn();
    	 playTwo.switchTurn();
    	 lb.setSpot(0, 2);
+   	 lb.checkWon();
    	 assertEquals(lb.isSpotEmpty(0, 2),false);
    	  
    	 playOne.switchTurn();
    	 playTwo.switchTurn();
    	 lb.setSpot(2, 1);
+     lb.checkWon();
    	 assertEquals(lb.isSpotEmpty(2, 1),false);
    	  
    	 playOne.switchTurn();
    	 playTwo.switchTurn();
    	 lb.setSpot(2,0);
+   	 lb.checkWon();
    	 assertEquals(lb.isSpotEmpty(2, 0),false);
    	  
    	 playOne.switchTurn();
    	 playTwo.switchTurn();
    	 lb.setSpot(0, 0);
+   	 lb.checkWon();
    	 assertEquals(lb.isSpotEmpty(0, 0),false);
    	  
    	 playOne.switchTurn();
    	 playTwo.switchTurn();
    	 lb.setSpot(1,1);
+   	 lb.checkWon();
    	 assertEquals(lb.isSpotEmpty(1, 1),false);
    	  
    	 //System.out.println(lb.toString());
@@ -218,6 +226,7 @@ public class LocalBoardTests
      lb.setSpot(0,0);
      lb.setSpot(0, 1);
      lb.setSpot(0, 2);
+     lb.checkWon();
      System.out.println(lb.toString());
      assertEquals("X",lb.getWinner());
  }
@@ -233,6 +242,7 @@ public class LocalBoardTests
      lb.setSpot(1,0);
      lb.setSpot(1, 1);
      lb.setSpot(1, 2);
+     lb.checkWon();
      System.out.println(lb.toString());
      assertEquals("X",lb.getWinner());
  }
@@ -248,6 +258,7 @@ public class LocalBoardTests
      lb.setSpot(2,0);
      lb.setSpot(2, 1);
      lb.setSpot(2, 2);
+     lb.checkWon();
      System.out.println(lb.toString());
      assertEquals("X",lb.getWinner());
  }
@@ -263,6 +274,7 @@ public class LocalBoardTests
      lb.setSpot(0,0);
      lb.setSpot(1, 0);
      lb.setSpot(2, 0);
+     lb.checkWon();
      System.out.println(lb.toString());
      assertEquals("X",lb.getWinner());
  }
@@ -278,6 +290,7 @@ public class LocalBoardTests
      lb.setSpot(0,1);
      lb.setSpot(1, 1);
      lb.setSpot(2, 1);
+     lb.checkWon();
      System.out.println(lb.toString());
      assertEquals("X",lb.getWinner());
  }
@@ -293,6 +306,7 @@ public class LocalBoardTests
      lb.setSpot(0,2);
      lb.setSpot(1, 2);
      lb.setSpot(2, 2);
+     lb.checkWon();
      System.out.println(lb.toString());
      assertEquals("X",lb.getWinner());
  }        
