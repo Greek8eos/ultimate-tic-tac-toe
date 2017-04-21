@@ -26,7 +26,7 @@ public class UltimateBoard
 		int count = 0;
 		for (int i = 0; i < boardArr.length; i++)
 		{
-			for (int j = 0; i < boardArr[i].length; j++)
+			for (int j = 0; j < boardArr.length; j++)
 			{
 				this.boardArr[i][j] = new LocalBoard(count, playOne, playTwo);
 				count++;
