@@ -80,11 +80,12 @@ public class LocalBoard
   
   public String getWinner()
   {
-    if (playOne.getSymbol() == this.winner)
+    //Comparing Strings. Changed from "==" to .equals
+    if (playOne.getSymbol().equals(this.winner))
     {
       return playOne.getSymbol();
     }
-    else if (playTwo.getSymbol() == this.winner)
+    else if (playTwo.getSymbol().equals(this.winner))
     {
       return playTwo.getSymbol();
     }
