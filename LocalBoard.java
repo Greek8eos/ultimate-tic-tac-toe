@@ -138,7 +138,7 @@ public class LocalBoard
   /**
   * Returns a string representation of the LocalBoard.
   */
-  public String toString()
+  /*public String toString()
   {
     StringBuilder localStr = new StringBuilder();
     for (int i = 0; i < 3; i++)
@@ -190,5 +190,5 @@ public class LocalBoard
     }
   
     return localStr.toString();
-  }
+  }*/
 }
