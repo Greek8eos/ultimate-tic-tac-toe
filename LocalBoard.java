@@ -13,7 +13,7 @@ public class LocalBoard
   private String winner;
   
   /**
-   * Local Board Costructor
+   * Local Board Constructor
    * Parameters: num (value to store as the board number in the [3][3] array)
    * Sets condition isWon to false (game is not won)
    * declares board array[3][3]
@@ -26,6 +26,14 @@ public class LocalBoard
     this.playOne = playOne;
     this.playTwo = playTwo;
     this.winner = null;
+    
+    for(int a = 0; a < boardArr.length; a++)
+    {
+    	for(int b = 0; b < boardArr.length; b++)
+    	{
+    		this.boardArr[a][b] = "_";
+    	}
+    }
   }
   
   /**
@@ -48,7 +56,7 @@ public class LocalBoard
   * Checks if the board has been won and sets isWon to true if the LocalBoard 
   * has been won.
   */
-  private void checkWon()
+  public void checkWon()
   {
     String symbol = null;
     if (playOne.getTurn())
@@ -89,7 +97,7 @@ public class LocalBoard
     {
       return playTwo.getSymbol();
     }
-    reutrn null;
+    return null;
   }
 
   /**
@@ -97,7 +105,7 @@ public class LocalBoard
   */
   public boolean isSpotEmpty(int row, int col)
   {
-    return (boardArr[row][col] == null);
+    return (boardArr[row][col] == "_");
   }
   
   
