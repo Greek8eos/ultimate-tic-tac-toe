@@ -5,7 +5,7 @@ public class UltimateBoard
 	// Nine UltimateBoard components of the ultimate board.
 	private LocalBoard[][] boardArr;
 	// Indicates if a UltimateBoard has been won
-	private String winner;
+	private String winner = null;
   	private boolean isWon;
 	private Player playOne;
   	private Player playTwo;
@@ -34,6 +34,11 @@ public class UltimateBoard
 		}
 	}
 	
+	public String getWinner()
+	{
+		return this.winner;
+	}
+	
 	public Player getPlayerOne()
 	{
 		return playOne;
@@ -42,6 +47,43 @@ public class UltimateBoard
 	public Player getPlayerTwo()
 	{
 		return playTwo;
+	}
+	
+	//Num  = 0 through 8
+	public LocalBoard getBoardArr(int num)
+	{
+		LocalBoard lb = new LocalBoard(num, this.playOne, this.playTwo);
+		switch(num)
+		{
+			case 0:
+				lb = this.boardArr[0][0];
+				break;
+			case 1:
+				lb = this.boardArr[0][1];
+				break;
+			case 2:
+				lb = this.boardArr[0][2];
+				break;
+			case 3:
+				lb = this.boardArr[1][0];
+				break;
+			case 4:
+				lb = this.boardArr[1][1];
+				break;
+			case 5:
+				lb = this.boardArr[1][2];
+				break;
+			case 6:
+				lb = this.boardArr[2][0];
+				break;
+			case 7:
+				lb = this.boardArr[2][1];
+				break;
+			case 8:
+				lb = this.boardArr[2][2];
+				break;
+		}
+		return lb;
 	}
 
 	/**
@@ -153,9 +195,10 @@ public class UltimateBoard
 			for (int j = 0; j < 3; j++)
 			{
 				String localStr = boardArr[i][j].toString();
-				ultimateStr.append(localStr + "  ");
+				ultimateStr.append(localStr + "");
+				ultimateStr.append("\n");
 			}
-			ultimateStr.append("\n\n");
+			ultimateStr.append("\n");
 		}
     return ultimateStr.toString();
 	}
