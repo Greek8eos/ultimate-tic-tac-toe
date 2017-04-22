@@ -82,6 +82,16 @@ public class LocalBoard
     {
       this.isWon = true;
       this.winner = symbol;
+      for(int a = 0; a < 3; a++)
+      {
+    	  for(int b = 0; b < 3; b++)
+    	  {
+    		  if(isSpotEmpty(a, b))
+    		  {
+    			  boardArr[a][b] = "R";
+    		  }
+    	  }
+      }
     }
     return;
   }
@@ -107,8 +117,6 @@ public class LocalBoard
   {
     return (boardArr[row][col] == "_");
   }
-  
-  
 
   /**
   * Sets a given spot on the LocalBoard to the current players symbol.
@@ -122,7 +130,7 @@ public class LocalBoard
       return null;
     }
 
-    if (playOne.getTurn())
+    if(playOne.getTurn())
     {
       boardArr[row][col] = playOne.getSymbol();
     }
@@ -138,7 +146,7 @@ public class LocalBoard
   /**
   * Returns a string representation of the LocalBoard.
   */
-  /*public String toString()
+  public String toString()
   {
     StringBuilder localStr = new StringBuilder();
     for (int i = 0; i < 3; i++)
@@ -190,5 +198,5 @@ public class LocalBoard
     }
   
     return localStr.toString();
-  }*/
+  }
 }
