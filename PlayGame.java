@@ -1,4 +1,6 @@
 import java.util.*;
+import java.io.*;
+import java.nio.charset.Charset;
 
 public class PlayGame
 {
@@ -11,92 +13,91 @@ public class PlayGame
   
   //Driver for Playing the Game
   public static void main(String[] args)
+  throws IOException
   {
     //Choose gamemodes, Play games, etc.
     gameBoard = new UltimateBoard();
     
-    String line;
-    try 
-    {
-      InputStream fis = new FileInputStream("/home/eadom/communication.txt");
-      InputStreamReader isr = new InputStreamReader(fis, Charset.forName("UTF-8"));
-      BufferedReader br = new BufferedReader(isr);
-    } 
-    {
-    while ((line = br.readLine()) == null) {
-    //just waiting for option input
-    }
-    String[] command = line.split("\\s+");
-    int chosenMode = Integer.parseInt(command[1]); 
-    switch(chosenMode)
-    {
-    // read mode from python
-    
-    switch(chosenMode)
-    {
-      /*Player One begins game, with turn equals true
-      Allow Player one to pick any spot on UltimateBoard
-      The position chosen dictates the next local board to be used
-      Whenever a local board is won, the game ends
-      */
-      case 1:
+    	String line;
+    	try 
+    	{
+    		InputStream fis = new FileInputStream("/home/eadom/communication.txt");
+    		InputStreamReader isr = new InputStreamReader(fis, Charset.forName("UTF-8"));
+    		BufferedReader br = new BufferedReader(isr);
+    	} 
+    	while ((line = br.readLine()) == null) 
+    	{
+    		//just waiting for option input
+    	}
+    	
+    	String[] command = line.split("\\s+");
+    	int chosenMode = Integer.parseInt(command[1]); 
+    	switch(chosenMode)
+    	{
+    		/*Player One begins game, with turn equals true
+      		Allow Player one to pick any spot on UltimateBoard
+      		The position chosen dictates the next local board to be used
+      		Whenever a local board is won, the game ends
+    		 */
+    	case 1:
         
-        //Player One picks a position (A local board and local board position)
-        //How is this represented? Are we receiving a string or input from the click in the UI
-        //Player Two picks a position in a local board dictated by the previous position
-        //This should continue in a loop until one local board is won
-        int localBoardNumber = 0;
+    		//Player One picks a position (A local board and local board position)
+    		//How is this represented? Are we receiving a string or input from the click in the UI
+    		//Player Two picks a position in a local board dictated by the previous position
+    		//This should continue in a loop until one local board is won
+    		int localBoardNumber = 0;
 
-        // Added  by Eadom
-        // String line;
-        // try (
-        // InputStream fis = new FileInputStream("/home/eadom/communication.txt");
-        // InputStreamReader isr = new InputStreamReader(fis, Charset.forName("UTF-8"));
-        // BufferedReader br = new BufferedReader(isr);
-        // ) 
-        // {
-        // while ((line = br.readLine()) == null) {
-        // //just waiting for option input
-        // }
-        // String[] command = line.split("\\s+")
-        // int row = Integer.parseInt(command[1])
-        // int col = Integer.parseInt(command[2])
-        /////////////////////////////////////////
+    		// Added  by Eadom
+    		// String line;
+    		// try (
+    		// InputStream fis = new FileInputStream("/home/eadom/communication.txt");
+    		// InputStreamReader isr = new InputStreamReader(fis, Charset.forName("UTF-8"));
+    		// BufferedReader br = new BufferedReader(isr);
+    		// ) 
+    		// {
+    		// while ((line = br.readLine()) == null) {
+    		// //just waiting for option input
+    		// }
+    		// String[] command = line.split("\\s+")
+    		// int row = Integer.parseInt(command[1])
+    		// int col = Integer.parseInt(command[2])
+    		/////////////////////////////////////////
 
-        gameBoard.playOne.setPlayerTurn();
-        while(!gameBoard.getBoardArr(localBoardNumber).checkWon())
-        {
-         //  receive player input
-         // lnum= local board number from python;
+    		gameBoard.playOne.setPlayerTurn();
+    		while(!gameBoard.getBoardArr(localBoardNumber).checkWon())
+    		{
+    			//  receive player input
+    			// lnum= local board number from python;
 
-          if(gameBoard.getBoardArr(localBoardNumber).isSpotEmpty(row, col))
-          {
-            int[] nextLBArr = gameBoard.getBoardArr(localBoardNumber).setSpot(row,col))
+    			if(gameBoard.getBoardArr(localBoardNumber).isSpotEmpty(row, col))
+    			{
+    				int[] nextLBArr = gameBoard.getBoardArr(localBoardNumber).setSpot(row,col))
        
-            if(gameBoard.getBoardArr(localBoardNumber).checkWon())
-            {
-               //send to python playerOne won
-               //receive whether NewGame or Quit
+            	if(gameBoard.getBoardArr(localBoardNumber).checkWon())
+            	{
+            		//send to python playerOne won
+            		//receive whether NewGame or Quit
                
-               //Check newG if it equals 'Y' or any other answer
+            		//Check newG if it equals 'Y' or any other answer
              
-              if(newGame)
-              {
-              // If input is 'Y' for "Yes" than this results in a new game
-              //    main();
-              //    exit();
-              }
-              else if
-              {
-                 System.exit(0);
-              }
+            		if(newGame)
+            		{
+            			// If input is 'Y' for "Yes" than this results in a new game
+            			//  main();
+            			//  exit();
+            			return;
+            		}
+            		else if
+            		{
+            			System.exit(0);
+            		}
 
-              else
-              {
-                try 
-                {
-                  BufferedWriter bw = null;
-                  FileWriter fw = null;
+            		else
+            		{
+            			try 
+            			{
+            				BufferedWriter bw = null;
+            				FileWriter fw = null;
 
                   String content = "Feedback True Localboard 1";
 
@@ -142,7 +143,6 @@ public class PlayGame
           System.out.println("Error: Chosen mode number not recognized. Enter new input:");
           chosenMode = sc.nextInt();
         }
-        
+       }  
     }
   }
-}
