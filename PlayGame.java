@@ -15,6 +15,21 @@ public class PlayGame
     //Choose gamemodes, Play games, etc.
     gameBoard = new UltimateBoard();
     
+    String line;
+    try 
+    {
+      InputStream fis = new FileInputStream("/home/eadom/communication.txt");
+      InputStreamReader isr = new InputStreamReader(fis, Charset.forName("UTF-8"));
+      BufferedReader br = new BufferedReader(isr);
+    } 
+    {
+    while ((line = br.readLine()) == null) {
+    //just waiting for option input
+    }
+    String[] command = line.split("\\s+");
+    int chosenMode = Integer.parseInt(command[1]); 
+    switch(chosenMode)
+    {
     // read mode from python
     
     switch(chosenMode)
@@ -31,6 +46,23 @@ public class PlayGame
         //Player Two picks a position in a local board dictated by the previous position
         //This should continue in a loop until one local board is won
         int localBoardNumber = 0;
+
+        // Added  by Eadom
+        // String line;
+        // try (
+        // InputStream fis = new FileInputStream("/home/eadom/communication.txt");
+        // InputStreamReader isr = new InputStreamReader(fis, Charset.forName("UTF-8"));
+        // BufferedReader br = new BufferedReader(isr);
+        // ) 
+        // {
+        // while ((line = br.readLine()) == null) {
+        // //just waiting for option input
+        // }
+        // String[] command = line.split("\\s+")
+        // int row = Integer.parseInt(command[1])
+        // int col = Integer.parseInt(command[2])
+        /////////////////////////////////////////
+
         gameBoard.playOne.setPlayerTurn();
         while(!gameBoard.getBoardArr(localBoardNumber).checkWon())
         {
@@ -43,10 +75,10 @@ public class PlayGame
        
             if(gameBoard.getBoardArr(localBoardNumber).checkWon())
             {
-             //send to python playerOne won
-             //receive whether NewGame or Quit
-             
-             //Check newG if it equals 'Y' or any other answer
+               //send to python playerOne won
+               //receive whether NewGame or Quit
+               
+               //Check newG if it equals 'Y' or any other answer
              
               if(newGame)
               {
@@ -54,10 +86,41 @@ public class PlayGame
               //    main();
               //    exit();
               }
-              else
+              else if
               {
                  System.exit(0);
               }
+
+              else
+              {
+                try 
+                {
+                  BufferedWriter bw = null;
+                  FileWriter fw = null;
+
+                  String content = "Feedback True Localboard 1";
+
+                  fw = new FileWriter(FILENAME);
+                  bw = new BufferedWriter(fw);
+                  bw.write(content);
+
+                  System.out.println("Sending random command in a single line");
+                  if (bw != null)
+                    bw.close();
+
+                  if (fw != null)
+                    fw.close();
+
+                }
+                catch (IOException e) 
+                {
+                  e.printStackTrace();
+                }
+
+              // Eadom what is this line and where is it supposed to go.
+              // }, 0, 1000L, TimeUnit.MILLISECONDS);
+              //   }
+              // }
 
               int nextLBnum = 3 * nextLBArr[0] + nextLBArr[1];
             }
