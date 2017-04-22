@@ -161,4 +161,25 @@ public class UltimateBoardTest {
 		assertEquals(ub.getBoardArr(1).getWinner(), "O");
 		assertEquals(ub.getBoardArr(2).getWinner(), "X");
 	}
+	
+	@Test //UltimateBoard - checkWon (SetSpot)
+	//NEEDS TO BE FIXED (FILL UP BOARD WITH WINNING PLAYERS SYMBOL)
+	public void checkWon2()
+	{
+		UltimateBoard ub = new UltimateBoard();
+		ub.getPlayerOne().setPlayerTurn();
+		LocalBoard lb = ub.getBoardArr(0);
+		lb.setSpot(0, 0);
+		lb.setSpot(0, 1);
+		lb.setSpot(0, 2);
+		lb.checkWon();
+		
+		ub.setTurn();
+		lb.setSpot(1, 0);
+
+		System.out.println(ub.toString());
+		assertEquals(ub.getWinner(), null);
+		assertEquals(ub.getBoardArr(0).getWinner(), "X");
+		assertEquals(ub.getBoardArr(0).isSpotEmpty(1,0), false);
+	}
 }
