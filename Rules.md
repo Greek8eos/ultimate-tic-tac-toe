@@ -6,8 +6,7 @@ Two Game Modes
 1) First Player to win one Local Board
 2) First Player to win three Local Boards in a row
 
-Player 1 and Player 2 pick colors to represent their selected psoitions (3 colors to choose from - RED, BLUE, GREEN) 
-//Can edit later
+Player 1 and Player 2 
 
 1. Player 1 picks the local board and position he/she wants to start from
 2. Player 2 must play the local board decided by the previous player's position, but can play anywhere inside that local board. (Repeated until a victor of a local board)
