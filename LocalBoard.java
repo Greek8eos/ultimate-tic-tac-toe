@@ -160,43 +160,4 @@ public class LocalBoard
     }
     return localStr.toString();
   }
-  
-  public sendToPython()
-  {
-    //Change file path.
-    String FILENAME = "/Users/marwanali/desktop/Testfile";
-
-    StringBuilder localStr = new StringBuilder();
-    for (int i = 0; i < 3; i++)
-    {
-      for (int j = 0; j < 3; j++)
-      {
-        localStr.append(" " + boardArr[i][j]);
-      }
-      localStr.append(" ");
-    }
-
-    try {
-          BufferedWriter bw = null;
-          FileWriter fw = null;
-
-          String content = localStr.toString();
-
-          fw = new FileWriter(FILENAME);
-          bw = new BufferedWriter(fw);
-          bw.write(content);
-
-          System.out.println("Sending random command in a single line");
-              if (bw != null)
-                  bw.close();
-
-              if (fw != null)
-                  fw.close();
-    } 
-    catch (IOException e) {
-        e.printStackTrace();
-    }
-  
-    return localStr.toString();
-  }
 }
