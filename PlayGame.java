@@ -57,15 +57,15 @@ public class PlayGame
             //just waiting for option input
             }
             String[] command1 = line.split("\\s+");
-            int row = Integer.parseInt(command[0]);
-            int col = Integer.parseInt(command[1]);
-            localBoardNumber=Integer.parseInt(command[2]);
+            int row = Integer.parseInt(command1[0]);
+            int col = Integer.parseInt(command1[1]);
+            localBoardNumber=Integer.parseInt(command1[2]);
             		
           if(gameBoard.getBoardArr(localBoardNumber).isSpotEmpty(row, col))
           {
             int[] nextLBArr = gameBoard.getBoardArr(localBoardNumber).setSpot(row,col);
             gameBoard.getBoardArr(localBoardNumber).checkWon();
-       
+            
             if(gameBoard.getBoardArr(localBoardNumber).isWon())
             {
                //send to python playerOne won
@@ -84,7 +84,7 @@ public class PlayGame
                    }
                    String content = "Won " + playerNumber;
 
-                   fw = new FileWriter(FILENAME);
+                   fw = new FileWriter("/home/eadom/communication.txt");
                    bw = new BufferedWriter(fw);
                    bw.write(content);
 
@@ -114,9 +114,9 @@ public class PlayGame
                   BufferedWriter bw = null;
                   FileWriter fw = null;
 
-                  String content = "Feedback True Localboard "+localBoardNumber;
+                  String content = "Feedback 1 Localboard "+localBoardNumber;
 
-                  fw = new FileWriter(FILENAME);
+                  fw = new FileWriter("/home/eadom/communication.txt");
                   bw = new BufferedWriter(fw);
                   bw.write(content);
 
@@ -143,9 +143,9 @@ public class PlayGame
                 BufferedWriter bw = null;
                 FileWriter fw = null;
 
-                String content = "Feedback False";
+                String content = "Feedback 0";
 
-                fw = new FileWriter(FILENAME);
+                fw = new FileWriter("/home/eadom/communication.txt");
                 bw = new BufferedWriter(fw);
                 bw.write(content);
 
@@ -186,10 +186,10 @@ public class PlayGame
               {
               //just waiting for option input
               }
-              String[] command1 = line.split("\\s+");
-              int row = Integer.parseInt(command[0]);
-              int col = Integer.parseInt(command[1]);
-              localBoardNumber1=Integer.parseInt(command[2]);
+              String[] command2 = line.split("\\s+");
+              int row = Integer.parseInt(command2[0]);
+              int col = Integer.parseInt(command2[1]);
+              localBoardNumber1=Integer.parseInt(command2[2]);
               		
             if(gameBoard.getBoardArr(localBoardNumber1).isSpotEmpty(row, col))
             {
@@ -213,7 +213,7 @@ public class PlayGame
                      }
                      String content = "Won " + playerNumber;
 
-                     fw = new FileWriter(FILENAME);
+                     fw = new FileWriter("/home/eadom/communication.txt");
                      bw = new BufferedWriter(fw);
                      bw.write(content);
 
@@ -235,12 +235,12 @@ public class PlayGame
               }
                 else
                 {
-                	 if(gameBoard.getBoardArr(localBoardNumber).isWon())
+                	 if(gameBoard.getBoardArr(localBoardNumber1).isWon())
                      {
                         //send to python playerOne won
                      	 try 
                           {
-                     		localBoardNumber = 3 * nextLBArr[0] + nextLBArr[1];
+                     		localBoardNumber1 = 3 * nextLBArr[0] + nextLBArr[1];
                      		BufferedWriter bw = null;
                             FileWriter fw = null;
                             int playerNumber;
@@ -252,9 +252,9 @@ public class PlayGame
                             {
                          	   playerNumber=2;
                             }
-                            String content = "LocalWon " + playerNumber + " " + localBoardNumber;
+                            String content = "LocalWon " + playerNumber + " " + localBoardNumber1;
 
-                            fw = new FileWriter(FILENAME);
+                            fw = new FileWriter("/home/eadom/communication.txt");
                             bw = new BufferedWriter(fw);
                             bw.write(content);
 
@@ -273,7 +273,7 @@ public class PlayGame
                      }
                 	 else
                 	 {
-                		 localBoardNumber = 3 * nextLBArr[0] + nextLBArr[1];
+                		 localBoardNumber1 = 3 * nextLBArr[0] + nextLBArr[1];
                 		 gameBoard.getPlayerOne().switchTurn();
                 		 gameBoard.getPlayerTwo().switchTurn();
                 		 try 
@@ -281,9 +281,9 @@ public class PlayGame
                 			 BufferedWriter bw = null;
                 			 FileWriter fw = null;
 
-                			 String content = "Feedback True Localboard "+localBoardNumber;
+                			 String content = "Feedback 1 Localboard "+localBoardNumber1;
 
-                			 fw = new FileWriter(FILENAME);
+                			 fw = new FileWriter("/home/eadom/communication.txt");
                 			 bw = new BufferedWriter(fw);
                 			 bw.write(content);
                     
@@ -311,9 +311,9 @@ public class PlayGame
                   BufferedWriter bw = null;
                   FileWriter fw = null;
 
-                  String content = "Feedback False";
+                  String content = "Feedback 0";
 
-                  fw = new FileWriter(FILENAME);
+                  fw = new FileWriter("/home/eadom/communication.txt");
                   bw = new BufferedWriter(fw);
                   bw.write(content);
 
@@ -335,13 +335,6 @@ public class PlayGame
           
         
         break;
-      default:
-        while(chosenMode != 1 || chosenMode != 2)
-        {
-          System.out.println("Error: Chosen mode number not recognized. Enter new input:");
-          chosenMode = sc.nextInt();
-        }
-        
     }
   }
 }
