@@ -279,7 +279,22 @@ break;
                      		localBoardNumber1 = 3 * nextLBArr[0] + nextLBArr[1];
 				if (gameBoard.getBoardArr(localBoardNumber1).isWon())
 	   			 {
-		    			//need to change localBoardNumber1 to something that isnt won
+					int i = 0, j = 0, num = 0;
+					while(i < 3 && j < 3 && gameboard.getBoardArr(num).isWon())
+					{
+						num = 3i + j;
+						if(!gameboard.getBoardArr(num).isWon())
+						{
+							localBoardNumber1 = num;
+							break;
+						}
+						j++
+						if(j == 3)
+						{
+							i++;
+							j = 0;
+						}
+					}
 	    			 }
                      		BufferedWriter bw = null;
                             FileWriter fw = null;
