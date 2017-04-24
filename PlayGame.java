@@ -227,7 +227,10 @@ break;
             if(gameBoard.getBoardArr(localBoardNumber1).isSpotEmpty(row, col))
             {
               int[] nextLBArr = gameBoard.getBoardArr(localBoardNumber1).setSpot(row,col);
-         
+		    
+	      gameBoard.getBoardArr(localBoardNumber).checkWon();
+	      gameBoard.checkWon();
+         	
               if(gameBoard.isWon())
               {
                  //send to python playerOne won
