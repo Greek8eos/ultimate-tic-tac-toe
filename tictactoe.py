@@ -10,7 +10,7 @@ from fileIOBoard import *
 from mapping import *
 from functools import partial
 
-state = options = False #state of the screen (title screen, options screen)
+state = options = blueWon = redWon = False #state of the screen (title screen, options screen)
 numTurns = numBoards = 0 #number of turns taken so far, number of won boards
 sides = ['red', 'blue']
 xCount = oCount = 0 #each side number of turns
@@ -100,6 +100,8 @@ def updateBoardPositions(xMoves, oMoves, turn): #This is the repeatedly called m
 
     	pygame.display.flip()
 	for event in pygame.event.get():
+        	if event.type == pygame.QUIT:
+	    		sys.exit(1)
     		if event.type == pygame.MOUSEBUTTONDOWN:
 			position, appender, localBoardNum, globalBoardNumber = mapToBoard(pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1]) #write position
 			#print position
@@ -107,8 +109,6 @@ def updateBoardPositions(xMoves, oMoves, turn): #This is the repeatedly called m
 			#updateBoards(screen, 0, 'b')
 			#updateBoards(screen, 9, 'r')
 			commandList = []
-		#	print position
-		#	print numBoard
 			if restrainedBoardNumber != -1:
 				if restrainedBoardNumber == globalBoardNumber:
 					msg = position + [globalBoardNumber]
@@ -120,6 +120,7 @@ def updateBoardPositions(xMoves, oMoves, turn): #This is the repeatedly called m
 			for i in range(0, len(commandList)):
 				if commandList[i][1] == 'Won':
 					if line[commandList[i][0] + 1] == '1':
+						time.sleep(5)
 					#	print currTurn + 'won!'
 						sys.exit()
 				if commandList[i][1] == 'Feedback':
@@ -127,12 +128,13 @@ def updateBoardPositions(xMoves, oMoves, turn): #This is the repeatedly called m
 					if feedback == 1:
 						appender[0] -= 25
 						appender[1] -= 25
+
 						if turn == 'red':
 		    					xMoves.append(appender)
 						else:
 		    					oMoves.append(appender)
 						numTurns += 1
-				elif commandList[i][1] == 'LocalBoardChange':
+				if commandList[i][1] == 'LocalBoardChange':
 					newBoard = int(line[commandList[i][0] + 1])
 					posInsert = mapLocalBoard(newBoard, numBoards)
 					if feedback != 0:				
@@ -143,18 +145,15 @@ def updateBoardPositions(xMoves, oMoves, turn): #This is the repeatedly called m
 							screen.blit(red, posInsert)
 						prevPosInsert = posInsert
 						restrainedBoardNumber = newBoard
-				elif commandList[i][1] == 'LocalBoardWon':
+				if commandList[i][1] == 'LocalBoardWon':
 					if line[commandList[i][0] + 1] == '1':
 						newBoardWon = numBoard
-						print "LocalBoardWon"
-						updateBoards(screen, newBoardWon, currTurn)
+						print newBoardWon
+						updateBoards(screen, globalBoardNumber, currTurn)
 
 
 
 			dt = clock.tick(60)
-    	for event in pygame.event.get():
-        	if event.type == pygame.QUIT:
-	    		sys.exit()
 	pygame.event.pump()
 	return xMoves, oMoves
 
