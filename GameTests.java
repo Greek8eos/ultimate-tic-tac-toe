@@ -11,6 +11,6 @@ public class GameTests
 {
   public static void main(String args[])
   {
-    org.junit.runner.JUnitCore.main("PlayerTests", "LocalBoardTests","UltimateBoardTests");
+    org.junit.runner.JUnitCore.main("PlayerTests", "LocalBoardTests","UltimateBoardTest");
   } 
 }
