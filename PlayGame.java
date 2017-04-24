@@ -223,7 +223,7 @@ break;
             int row = Integer.parseInt(command2[1]);
             int col = Integer.parseInt(command2[2]);
             localBoardNumber=Integer.parseInt(command2[3]);
-              		
+		  	
             if(gameBoard.getBoardArr(localBoardNumber1).isSpotEmpty(row, col))
             {
               int[] nextLBArr = gameBoard.getBoardArr(localBoardNumber1).setSpot(row,col);
@@ -239,14 +239,14 @@ break;
                      BufferedWriter bw = null;
                      FileWriter fw = null;
                      int playerNumber;
-                     if(gameBoard.getPlayerOne().getTurn())
+                     /*if(gameBoard.getPlayerOne().getTurn())   NEEDS TO BE DELETED CORRECT?
                      {
                   	   playerNumber=1;
                      }
                      else
                      {
                   	   playerNumber=2;
-                     }
+                     }*/
                      String content = "Feedback 1 LocalBoardChange " + localBoardNumber1 + " LocalBoardWon 1 Won 1";
 
                      fw = new FileWriter("/home/eadom/communication.txt");
@@ -277,9 +277,13 @@ break;
                      	 try 
                           {
                      		localBoardNumber1 = 3 * nextLBArr[0] + nextLBArr[1];
+				if (gameBoard.getBoardArr(localBoardNumber1).isWon())
+	   			 {
+		    			//need to change localBoardNumber1 to something that isnt won
+	    			 }
                      		BufferedWriter bw = null;
                             FileWriter fw = null;
-                            int playerNumber;
+                           /* int playerNumber;  NEEDS TO BE DELETED CORRECT?
                             if(gameBoard.getPlayerOne().getTurn())
                             {
                          	   playerNumber=1;
@@ -287,7 +291,7 @@ break;
                             else
                             {
                          	   playerNumber=2;
-                            }
+                            }*/
                             String content = "Feedback 1 LocalBoardChange " + localBoardNumber1 + " LocalBoardWon 1 Won 0";
 
                             fw = new FileWriter("/home/eadom/communication.txt");
