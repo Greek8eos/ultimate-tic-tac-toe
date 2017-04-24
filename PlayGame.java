@@ -222,7 +222,9 @@ break;
             int row = Integer.parseInt(command2[1]);
             int col = Integer.parseInt(command2[2]);
             localBoardNumber1=Integer.parseInt(command2[3]);
-		  	
+	
+		
+		  
             if(gameBoard.getBoardArr(localBoardNumber1).isSpotEmpty(row, col))
             {
               int[] nextLBArr = gameBoard.getBoardArr(localBoardNumber1).setSpot(row,col);
@@ -270,7 +272,7 @@ break;
               }
                 else
                 {
-                	 if(gameBoard.getBoardArr(localBoardNumber1).isWon())
+                     if(gameBoard.getBoardArr(localBoardNumber1).isWon())
                      {
                         //send to python playerOne won
                      	 try 
@@ -278,24 +280,6 @@ break;
                      		localBoardNumber1 = 3 * nextLBArr[0] + nextLBArr[1];
 				if (gameBoard.getBoardArr(localBoardNumber1).isWon())
 	   			 {
-					/*
-					int i = 0, j = 0, num = 0;
-					while(i < 3 && j < 3 && gameBoard.getBoardArr(num).isWon())
-					{
-						num = 3i + j;
-						if(!gameBoard.getBoardArr(num).isWon())
-						{
-							localBoardNumber1 = num;
-							i=4;
-						}
-						j++;
-						if(j == 3)
-						{
-							i++;
-							j = 0;
-						}
-					}
-					*/
 					
 // 					boolean flag1 = false;
 // 					for(int i =0; i<3 ;i++)
@@ -355,6 +339,17 @@ break;
                 	 else
                 	 {
                 		 localBoardNumber1 = 3 * nextLBArr[0] + nextLBArr[1];
+				 
+				 //Change local board if already won
+	  			  if(gameBoard.getBoardArr(localBoardNumber1).isWon())
+				    {
+		      			 locaBoardNumber1 = 0;
+		      			 while(gameBoard.boardArr(localBoardNumber1).isWon())
+		     			 {
+			   		    localBoardNumber1++;
+		     	  		 }
+	 			   }
+				 
                 		 gameBoard.getPlayerOne().switchTurn();
                 		 gameBoard.getPlayerTwo().switchTurn();
                 		 try 
