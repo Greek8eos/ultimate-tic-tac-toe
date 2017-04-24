@@ -75,7 +75,10 @@ break;
 System.out.println(line2.toString());
 
 
-           
+           // while ((line = br1.readLine()) == null || (line = br1.readLine()).equals("Feedback")) 
+           // {
+            //just waiting for option input
+           // }
             String[] command1 = line2.split("\\s+");
             int row = Integer.parseInt(command1[1]);
             int col = Integer.parseInt(command1[2]);
@@ -95,7 +98,15 @@ System.out.println(line2.toString());
                  {
                    BufferedWriter bw = null;
                    FileWriter fw = null;
-                   
+                   int playerNumber;
+                   if(gameBoard.getPlayerOne().getTurn())
+                   {
+                	   playerNumber=1;
+                   }
+                   else
+                   {
+                	   playerNumber=2;
+                   }
                    String content = "Feedback 1 LocalBoardChange " + localBoardNumber + " LocalBoardWin 1 Won 1";
 
                    fw = new FileWriter("/home/eadom/communication.txt");
@@ -185,6 +196,8 @@ System.out.println(line2.toString());
         //This should continue in a loop until three local boards are won in a row
     	  int localBoardNumber1 = 0;
 
+
+
           gameBoard.getPlayerOne().setPlayerTurn();
           while(!gameBoard.isWon())
           {
@@ -211,7 +224,7 @@ break;
             int row = Integer.parseInt(command2[1]);
             int col = Integer.parseInt(command2[2]);
             localBoardNumber1=Integer.parseInt(command2[3]);
-		  
+              	
             if(gameBoard.getBoardArr(localBoardNumber1).isSpotEmpty(row, col))
             {
               int[] nextLBArr = gameBoard.getBoardArr(localBoardNumber1).setSpot(row,col);
@@ -227,7 +240,14 @@ break;
                      BufferedWriter bw = null;
                      FileWriter fw = null;
                      int playerNumber;
-                    
+                     if(gameBoard.getPlayerOne().getTurn())
+                     {
+                  	   playerNumber=1;
+                     }
+                     else
+                     {
+                  	   playerNumber=2;
+                     }
                      String content = "Feedback 1 LocalBoardChange " + localBoardNumber1 + " LocalBoardWon 1 Won 1";
 
                      fw = new FileWriter("/home/eadom/communication.txt");
@@ -252,26 +272,40 @@ break;
               }
                 else
                 {
-                     if(gameBoard.getBoardArr(localBoardNumber1).isWon())
+                	 if(gameBoard.getBoardArr(localBoardNumber1).isWon())
                      {
                         //send to python playerOne won
                      	 try 
-                          {	
+                          {
 				gameBoard.getPlayerOne().switchTurn();
                 		gameBoard.getPlayerTwo().switchTurn();
-				 
+
                      		localBoardNumber1 = 3 * nextLBArr[0] + nextLBArr[1];
-				if (gameBoard.getBoardArr(localBoardNumber1).isWon())
-	   			 {					
-					locaBoardNumber1 = 0;
-					while(gameBoard.boardArr(localBoardNumber1).isWon())
-					{
-						localBoardNumber1++;
-					}
-	    			 }
+
+  				if (gameBoard.getBoardArr(localBoardNumber1).isWon())
+                                    {
+                                        
+                                      
+                                        localBoardNumber1 = 0;
+                                        while(gameBoard.getBoardArr(localBoardNumber1).isWon())
+                                        {
+                                            localBoardNumber1++;
+                                        }
+                                    }
                      		BufferedWriter bw = null;
                             FileWriter fw = null;
-                          
+
+
+
+                            int playerNumber;
+                            if(gameBoard.getPlayerOne().getTurn())
+                            {
+                         	   playerNumber=1;
+                            }
+                            else
+                            {
+                         	   playerNumber=2;
+                            }
                             String content = "Feedback 1 LocalBoardChange " + localBoardNumber1 + " LocalBoardWon 1 Won 0";
 
                             fw = new FileWriter("/home/eadom/communication.txt");
@@ -294,17 +328,16 @@ break;
                 	 else
                 	 {
                 		 localBoardNumber1 = 3 * nextLBArr[0] + nextLBArr[1];
-				 
-				 //Change local board if already won
-	  			  if(gameBoard.getBoardArr(localBoardNumber1).isWon())
-				    {
-		      			 locaBoardNumber1 = 0;
-		      			 while(gameBoard.boardArr(localBoardNumber1).isWon())
-		     			 {
-			   		    localBoardNumber1++;
-		     	  		 }
-	 			   }
-				 
+  if (gameBoard.getBoardArr(localBoardNumber1).isWon())
+                                    {
+                                        
+                                      
+                                        localBoardNumber1 = 0;
+                                        while(gameBoard.getBoardArr(localBoardNumber1).isWon())
+                                        {
+                                            localBoardNumber1++;
+                                        }
+                                    }
                 		 gameBoard.getPlayerOne().switchTurn();
                 		 gameBoard.getPlayerTwo().switchTurn();
                 		 try 
@@ -364,3 +397,4 @@ break;
     }
   }
 }
+
