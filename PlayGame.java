@@ -75,10 +75,7 @@ break;
 System.out.println(line2.toString());
 
 
-           // while ((line = br1.readLine()) == null || (line = br1.readLine()).equals("Feedback")) 
-           // {
-            //just waiting for option input
-           // }
+           
             String[] command1 = line2.split("\\s+");
             int row = Integer.parseInt(command1[1]);
             int col = Integer.parseInt(command1[2]);
@@ -98,15 +95,7 @@ System.out.println(line2.toString());
                  {
                    BufferedWriter bw = null;
                    FileWriter fw = null;
-                   int playerNumber;
-                   if(gameBoard.getPlayerOne().getTurn())
-                   {
-                	   playerNumber=1;
-                   }
-                   else
-                   {
-                	   playerNumber=2;
-                   }
+                   
                    String content = "Feedback 1 LocalBoardChange " + localBoardNumber + " LocalBoardWin 1 Won 1";
 
                    fw = new FileWriter("/home/eadom/communication.txt");
@@ -229,7 +218,7 @@ break;
             {
               int[] nextLBArr = gameBoard.getBoardArr(localBoardNumber1).setSpot(row,col);
 		    
-	      gameBoard.getBoardArr(localBoardNumber).checkWon();
+	      gameBoard.getBoardArr(localBoardNumber1).checkWon();
 	      gameBoard.checkWon();
          	
               if(gameBoard.isWon())
@@ -240,14 +229,7 @@ break;
                      BufferedWriter bw = null;
                      FileWriter fw = null;
                      int playerNumber;
-                     /*if(gameBoard.getPlayerOne().getTurn())   NEEDS TO BE DELETED CORRECT?
-                     {
-                  	   playerNumber=1;
-                     }
-                     else
-                     {
-                  	   playerNumber=2;
-                     }*/
+                    
                      String content = "Feedback 1 LocalBoardChange " + localBoardNumber1 + " LocalBoardWon 1 Won 1";
 
                      fw = new FileWriter("/home/eadom/communication.txt");
