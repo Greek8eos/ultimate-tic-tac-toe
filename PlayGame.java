@@ -211,8 +211,6 @@ break;
             int row = Integer.parseInt(command2[1]);
             int col = Integer.parseInt(command2[2]);
             localBoardNumber1=Integer.parseInt(command2[3]);
-	
-		
 		  
             if(gameBoard.getBoardArr(localBoardNumber1).isSpotEmpty(row, col))
             {
@@ -258,30 +256,13 @@ break;
                      {
                         //send to python playerOne won
                      	 try 
-                          {
+                          {	
+				gameBoard.getPlayerOne().switchTurn();
+                		gameBoard.getPlayerTwo().switchTurn();
+				 
                      		localBoardNumber1 = 3 * nextLBArr[0] + nextLBArr[1];
 				if (gameBoard.getBoardArr(localBoardNumber1).isWon())
-	   			 {
-					
-// 					boolean flag1 = false;
-// 					for(int i =0; i<3 ;i++)
-// 					{
-// 						for (int j=0; j<3; j++)
-// 						{	
-// 							num = (3*i)+j;
-// 							if(!gameBoard.getBoardArr(num).isWon())
-// 							{
-// 								localBoardNumber1 = num;
-// 								flag1 = true;
-// 								break;
-// 							}
-// 							if (flag1 == true)
-// 							{
-// 								break;
-// 							}
-// 						}
-// 					}
-					
+	   			 {					
 					locaBoardNumber1 = 0;
 					while(gameBoard.boardArr(localBoardNumber1).isWon())
 					{
@@ -290,15 +271,7 @@ break;
 	    			 }
                      		BufferedWriter bw = null;
                             FileWriter fw = null;
-                           /* int playerNumber;  NEEDS TO BE DELETED CORRECT?
-                            if(gameBoard.getPlayerOne().getTurn())
-                            {
-                         	   playerNumber=1;
-                            }
-                            else
-                            {
-                         	   playerNumber=2;
-                            }*/
+                          
                             String content = "Feedback 1 LocalBoardChange " + localBoardNumber1 + " LocalBoardWon 1 Won 0";
 
                             fw = new FileWriter("/home/eadom/communication.txt");
