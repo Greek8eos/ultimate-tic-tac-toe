@@ -115,7 +115,7 @@ public class LocalBoard
   */
   public boolean isSpotEmpty(int row, int col)
   {
-    return (boardArr[row][col] == "_");
+    return (boardArr[row][col].equals("_"));
   }
 
   /**
