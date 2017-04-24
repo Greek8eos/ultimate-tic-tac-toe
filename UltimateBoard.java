@@ -179,7 +179,7 @@ public class UltimateBoard
 		     (boardArr[2][0].isWon() &&  boardArr[0][0].getWinner().equals(playTwo.getSymbol()))))
 		{
 			this.isWon = true;
-			winner = "playOne";
+			winner = "playTwo";
 		}
 		return;
 	}
