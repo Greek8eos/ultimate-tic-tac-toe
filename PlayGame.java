@@ -18,6 +18,7 @@ public class PlayGame
     gameBoard = new UltimateBoard();
     
     String line;
+    String line2 = null;
     InputStream fis = new FileInputStream("/home/eadom/communication.txt");
     InputStreamReader isr = new InputStreamReader(fis, Charset.forName("UTF-8"));
     BufferedReader br = new BufferedReader(isr);
@@ -27,6 +28,9 @@ public class PlayGame
     }
     String[] command = line.split("\\s+");
     int chosenMode = Integer.parseInt(command[1]); 
+    
+    new FileWriter("/home/eadom/communication.txt").close();
+    System.out.println(chosenMode);
 
     switch(chosenMode)
     {
@@ -48,18 +52,39 @@ public class PlayGame
         while(!gameBoard.getBoardArr(localBoardNumber).isWon())
         {
         	// Added  by Eadom
-            InputStream fis1 = new FileInputStream("/home/eadom/communication.txt");
+         
+        
+while (1 == 1)
+{
+   InputStream fis1 = new FileInputStream("/home/eadom/communication.txt");
             InputStreamReader isr1 = new InputStreamReader(fis1, Charset.forName("UTF-8"));
             BufferedReader br1 = new BufferedReader(isr1);
-            
-            while ((line = br1.readLine()) == null) 
-            {
+line2 = br1.readLine();
+
+if(line2 == null)
+{
+}
+else
+{
+if(!line2.split("\\s+")[0].toString().equals("Feedback"))
+{
+break;
+}
+}
+} 
+System.out.println(line2.toString());
+
+
+           // while ((line = br1.readLine()) == null || (line = br1.readLine()).equals("Feedback")) 
+           // {
             //just waiting for option input
-            }
-            String[] command1 = line.split("\\s+");
-            int row = Integer.parseInt(command1[0]);
-            int col = Integer.parseInt(command1[1]);
-            localBoardNumber=Integer.parseInt(command1[2]);
+           // }
+            String[] command1 = line2.split("\\s+");
+            int row = Integer.parseInt(command1[1]);
+            int col = Integer.parseInt(command1[2]);
+            localBoardNumber=Integer.parseInt(command1[3]);
+	    System.out.println(row);
+	    System.out.println(col);
             		
           if(gameBoard.getBoardArr(localBoardNumber).isSpotEmpty(row, col))
           {
@@ -82,12 +107,12 @@ public class PlayGame
                    {
                 	   playerNumber=2;
                    }
-                   String content = "Won " + playerNumber;
+                   String content = "Feedback 1 LocalBoardChange " + localBoardNumber + " LocalBoardWin 1 Won 1";
 
                    fw = new FileWriter("/home/eadom/communication.txt");
                    bw = new BufferedWriter(fw);
                    bw.write(content);
-
+		
                    System.out.println("Sending random command in a single line");
                    if (bw != null)
                      bw.close();
@@ -100,8 +125,7 @@ public class PlayGame
                  {
                    e.printStackTrace();
                  }
-             
-                 System.exit(0);
+           
               
             }
               else
@@ -114,7 +138,7 @@ public class PlayGame
                   BufferedWriter bw = null;
                   FileWriter fw = null;
 
-                  String content = "Feedback 1 Localboard "+localBoardNumber;
+                  String content = "Feedback 1 LocalBoardChange " + localBoardNumber + " LocalBoardWin 0 Won 0";
 
                   fw = new FileWriter("/home/eadom/communication.txt");
                   bw = new BufferedWriter(fw);
@@ -143,7 +167,7 @@ public class PlayGame
                 BufferedWriter bw = null;
                 FileWriter fw = null;
 
-                String content = "Feedback 0";
+                String content = "Feedback 0 LocalBoardChange " + localBoardNumber + " LocalBoardWin 0 Won 0";
 
                 fw = new FileWriter("/home/eadom/communication.txt");
                 bw = new BufferedWriter(fw);
@@ -165,7 +189,6 @@ public class PlayGame
           }
         }
         
-        
         break;
       case 2:
         //Player On picks a position (A local board and local board position)
@@ -177,19 +200,29 @@ public class PlayGame
           gameBoard.getPlayerOne().setPlayerTurn();
           while(!gameBoard.isWon())
           {
-          	// Added  by Eadom
-              InputStream fis1 = new FileInputStream("/home/eadom/communication.txt");
-              InputStreamReader isr1 = new InputStreamReader(fis1, Charset.forName("UTF-8"));
-              BufferedReader br1 = new BufferedReader(isr1);
               
-              while ((line = br1.readLine()) == null) 
-              {
-              //just waiting for option input
-              }
-              String[] command2 = line.split("\\s+");
-              int row = Integer.parseInt(command2[0]);
-              int col = Integer.parseInt(command2[1]);
-              localBoardNumber1=Integer.parseInt(command2[2]);
+            while (1 == 1)
+{
+   InputStream fis1 = new FileInputStream("/home/eadom/communication.txt");
+            InputStreamReader isr1 = new InputStreamReader(fis1, Charset.forName("UTF-8"));
+            BufferedReader br1 = new BufferedReader(isr1);
+line2 = br1.readLine();
+
+if(line2 == null)
+{
+}
+else
+{
+if(!line2.split("\\s+")[0].toString().equals("Feedback"))
+{
+break;
+}
+}
+} 
+              String[] command2 = line2.split("\\s+");
+            int row = Integer.parseInt(command2[1]);
+            int col = Integer.parseInt(command2[2]);
+            localBoardNumber=Integer.parseInt(command2[3]);
               		
             if(gameBoard.getBoardArr(localBoardNumber1).isSpotEmpty(row, col))
             {
@@ -211,7 +244,7 @@ public class PlayGame
                      {
                   	   playerNumber=2;
                      }
-                     String content = "Won " + playerNumber;
+                     String content = "Feedback 1 LocalBoardChange " + localBoardNumber1 + " LocalBoardWon 1 Won 1";
 
                      fw = new FileWriter("/home/eadom/communication.txt");
                      bw = new BufferedWriter(fw);
@@ -252,7 +285,7 @@ public class PlayGame
                             {
                          	   playerNumber=2;
                             }
-                            String content = "LocalWon " + playerNumber + " " + localBoardNumber1;
+                            String content = "Feedback 1 LocalBoardChange " + localBoardNumber1 + " LocalBoardWon 1 Won 0";
 
                             fw = new FileWriter("/home/eadom/communication.txt");
                             bw = new BufferedWriter(fw);
@@ -281,7 +314,7 @@ public class PlayGame
                 			 BufferedWriter bw = null;
                 			 FileWriter fw = null;
 
-                			 String content = "Feedback 1 Localboard "+localBoardNumber1;
+                			 String content = "Feedback 1 LocalBoardChange " + localBoardNumber1 + " LocalBoardWon 0 Won 0";
 
                 			 fw = new FileWriter("/home/eadom/communication.txt");
                 			 bw = new BufferedWriter(fw);
@@ -299,8 +332,6 @@ public class PlayGame
                 		 {
                 			 e.printStackTrace();
                 		 }
-
-                
                 	 }
                 }
             }
@@ -311,7 +342,7 @@ public class PlayGame
                   BufferedWriter bw = null;
                   FileWriter fw = null;
 
-                  String content = "Feedback 0";
+                  String content = "Feedback 0 LocalBoardChange " + localBoardNumber1 + " LocalBoardWon 0 Won 0";
 
                   fw = new FileWriter("/home/eadom/communication.txt");
                   bw = new BufferedWriter(fw);
@@ -329,11 +360,8 @@ public class PlayGame
                 {
                   e.printStackTrace();
                 }
-
             }
           }
-          
-        
         break;
     }
   }
