@@ -13,4 +13,4 @@ public class GameTests
   {
     org.junit.runner.JUnitCore.main("PlayerTests", "LocalBoardTests","UltimateBoardTest");
   } 
-}
+} 
