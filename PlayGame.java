@@ -196,7 +196,6 @@ System.out.println(line2.toString());
         //This should continue in a loop until three local boards are won in a row
     	  int localBoardNumber1 = 0;
 
-
           gameBoard.getPlayerOne().setPlayerTurn();
           while(!gameBoard.isWon())
           {
@@ -222,7 +221,7 @@ break;
               String[] command2 = line2.split("\\s+");
             int row = Integer.parseInt(command2[1]);
             int col = Integer.parseInt(command2[2]);
-            localBoardNumber=Integer.parseInt(command2[3]);
+            localBoardNumber1=Integer.parseInt(command2[3]);
 		  	
             if(gameBoard.getBoardArr(localBoardNumber1).isSpotEmpty(row, col))
             {
@@ -279,21 +278,48 @@ break;
                      		localBoardNumber1 = 3 * nextLBArr[0] + nextLBArr[1];
 				if (gameBoard.getBoardArr(localBoardNumber1).isWon())
 	   			 {
+					/*
 					int i = 0, j = 0, num = 0;
-					while(i < 3 && j < 3 && gameboard.getBoardArr(num).isWon())
+					while(i < 3 && j < 3 && gameBoard.getBoardArr(num).isWon())
 					{
 						num = 3i + j;
-						if(!gameboard.getBoardArr(num).isWon())
+						if(!gameBoard.getBoardArr(num).isWon())
 						{
 							localBoardNumber1 = num;
-							break;
+							i=4;
 						}
-						j++
+						j++;
 						if(j == 3)
 						{
 							i++;
 							j = 0;
 						}
+					}
+					*/
+					
+// 					boolean flag1 = false;
+// 					for(int i =0; i<3 ;i++)
+// 					{
+// 						for (int j=0; j<3; j++)
+// 						{	
+// 							num = (3*i)+j;
+// 							if(!gameBoard.getBoardArr(num).isWon())
+// 							{
+// 								localBoardNumber1 = num;
+// 								flag1 = true;
+// 								break;
+// 							}
+// 							if (flag1 == true)
+// 							{
+// 								break;
+// 							}
+// 						}
+// 					}
+					
+					locaBoardNumber1 = 0;
+					while(gameBoard.boardArr(localBoardNumber1).isWon())
+					{
+						localBoardNumber1++;
 					}
 	    			 }
                      		BufferedWriter bw = null;
